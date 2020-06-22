@@ -125,10 +125,10 @@ function DropdownMenu() {
           <DropdownItem leftIcon={<BoltIcon />} rightIcon={<ChevronIcon />}>
             <h3>Primero</h3>
           </DropdownItem>
-          <DropdownItem>👽</DropdownItem>
-          <DropdownItem>💀</DropdownItem>
-          <DropdownItem>👾</DropdownItem>
-          <DropdownItem>👻</DropdownItem>
+          <DropdownItem leftIcon="🌲">Pino</DropdownItem>
+          <DropdownItem leftIcon="🍃">Hoja</DropdownItem>
+          <DropdownItem leftIcon="🌿">Rama</DropdownItem>
+          <DropdownItem leftIcon="🌱">Semilla</DropdownItem>
         </div>
       </CSSTransition>
 
@@ -143,10 +143,10 @@ function DropdownMenu() {
           <DropdownItem leftIcon={<ArrowIcon />} goToMenu="main">
             <h4>SEGUNDO</h4>
           </DropdownItem>
-          <DropdownItem>👽</DropdownItem>
-          <DropdownItem>💀</DropdownItem>
-          <DropdownItem>👾</DropdownItem>
-          <DropdownItem>👻</DropdownItem>
+          <DropdownItem leftIcon="👽">Alien</DropdownItem>
+          <DropdownItem leftIcon="💀">Craneo</DropdownItem>
+          <DropdownItem leftIcon="👾">Nave</DropdownItem>
+          <DropdownItem leftIcon="👻">Fantasma</DropdownItem>
         </div>
       </CSSTransition>
 
@@ -161,10 +161,10 @@ function DropdownMenu() {
           <DropdownItem leftIcon={<ArrowIcon />} goToMenu="main">
             <h4>Tercero</h4>
           </DropdownItem>
-          <DropdownItem>🦎</DropdownItem>
-          <DropdownItem>🐊</DropdownItem>
-          <DropdownItem>🐢</DropdownItem>
-          <DropdownItem>🐉</DropdownItem>
+          <DropdownItem leftIcon="🐉">Dragon</DropdownItem>
+          <DropdownItem leftIcon="🦎">Iguana</DropdownItem>
+          <DropdownItem leftIcon="🐊">Cocodrilo</DropdownItem>
+          <DropdownItem leftIcon="🐢">Tortuga</DropdownItem>
         </div>
       </CSSTransition>
     </div>
