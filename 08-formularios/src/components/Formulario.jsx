@@ -8,9 +8,42 @@ function Formulario() {
         todoCheck: false,
     });
 
+    const [errorNombre, setErrorNombre] = useState(false);
+    const [errorTexto, setErrorTexto] = useState(false);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(todo);
+
+        const { todoName, todoText } = todo;
+
+
+        // simple validation
+        if (!todoName.trim() && !todoText.trim()) {
+            setErrorNombre(true);
+            setErrorTexto(true);
+            console.log('⭕⭕');
+        } else if (!todoName.trim() && todoText.trim()) {
+            setErrorNombre(true);
+            setErrorTexto(false);
+            console.log('⭕🌲');
+        } else if (todoName.trim() && !todoText.trim()) {
+            setErrorNombre(false);
+            setErrorTexto(true);
+            console.log('🌲⭕');
+        } else {
+            setErrorNombre(false);
+            setErrorTexto(false);
+            console.log('🌲🌲');
+        }
+    };
+
+    const PintarError = () => {
+        return (
+            <div className="alert-danger">
+                <p>campo obligatorio</p>
+            </div>
+        );
     };
 
     const handleChange = (e) => {
@@ -41,6 +74,7 @@ function Formulario() {
         <>
             <form className="no-controlado" onSubmit={handleSubmit}>
                 <h2>Formulario</h2>
+
                 <input
                     type="text"
                     name="todoName"
@@ -49,12 +83,16 @@ function Formulario() {
                     onChange={handleChange}
                 />
 
+                {errorNombre ? <PintarError /> : null}
+
                 <textarea
                     name="todoText"
                     placeholder="Ingresar descripcion de tarea"
                     value={todo.todoText}
                     onChange={handleChange}
                 />
+
+                {errorTexto && <PintarError />}
 
                 <select
                     name="todoEstado"

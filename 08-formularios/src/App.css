@@ -88,6 +88,15 @@ main h1 {
     margin: 0 0 20px 0;
 }
 
+.no-controlado .alert-danger {
+    width: 88%;
+    margin: -15px auto 20px auto;
+    text-align: left;
+    padding: 0;
+}
+.no-controlado .alert-danger {
+    color: #ff7575;
+}
 .no-controlado input,
 .no-controlado textarea,
 .no-controlado select {
