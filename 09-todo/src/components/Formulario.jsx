@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useFormulario } from '../hooks/useFormulario';
 import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -11,8 +11,8 @@ function Formulario({ agregarTodo }) {
         prioridad: false,
     };
 
-    const [todo, setTodo] = useState(initialState);
-    const { nombre, descripcion, estado, prioridad } = todo;
+    const [inputs, handleChange, reset] = useFormulario(initialState);
+    const { nombre, descripcion, estado, prioridad } = inputs;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -58,16 +58,7 @@ function Formulario({ agregarTodo }) {
 
 
         // Reiniciar Forma
-        setTodo(initialState)
-    };
-
-    const handleChange = (e) => {
-        const { name, value, checked, type } = e.target;
-        // console.log(e.target);
-        setTodo((old) => ({
-            ...old,
-            [name]: type === 'checkbox' ? checked : value,
-        }));
+        reset()
     };
 
     return (
