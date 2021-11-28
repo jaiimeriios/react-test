@@ -63,7 +63,7 @@ function Formulario({ agregarTodo }) {
 
     const handleChange = (e) => {
         const { name, value, checked, type } = e.target;
-        console.log(e.target);
+        // console.log(e.target);
         setTodo((old) => ({
             ...old,
             [name]: type === 'checkbox' ? checked : value,

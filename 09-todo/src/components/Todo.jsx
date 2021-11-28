@@ -1,7 +1,7 @@
 function Todo(props) {
     console.log(props);
 
-    const { nombre, descripcion, estado, prioridad } = props.todo;
+    const { id, nombre, descripcion, estado, prioridad } = props.todoItem;
 
     return (
         <li>
@@ -14,14 +14,17 @@ function Todo(props) {
                         {prioridad ? 'Prioritario!' : ''}
                     </span>
                 </div>
-
                 <h3>{nombre}</h3>
                 <p>{descripcion}</p>
             </div>
-
             <div className="botones">
                 <button className="editar">Editar</button>
-                <button className="eliminar">Eliminar</button>
+                <button
+                    className="eliminar"
+                    onClick={() => props.eliminarItem(id)}
+                >
+                    Eliminar
+                </button>
             </div>
         </li>
     );

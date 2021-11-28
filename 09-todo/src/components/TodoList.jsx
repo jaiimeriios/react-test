@@ -9,15 +9,22 @@ function TodoList() {
         console.log(todo);
         setTodos((old) => [...old, todo]);
     };
+
+    const eliminarTodo = (id) => {
+        setTodos((old) => old.filter((item) => item.id !== id));
+    };
+
     return (
         <>
             <Formulario agregarTodo={agregarTodo} />
 
-            {2 < 1 ? <p>asdf</p> : ''}
-
             <ul className="todo-list">
                 {todos.map((item) => (
-                    <Todo key={item.id} todo={item} />
+                    <Todo
+                        key={item.id}
+                        todoItem={item}
+                        eliminarItem={eliminarTodo}
+                    />
                 ))}
             </ul>
         </>
