@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Formulario from './Formulario';
 import Todo from './Todo';
 
 function TodoList() {
     const [todos, setTodos] = useState([]);
 
+    useEffect(() => {
+        if (localStorage.getItem('todos')) {
+            setTodos(JSON.parse(localStorage.getItem('todos')));
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
+
     const agregarTodo = (todo) => {
-        console.log(todo);
+        // console.log(todo);
         setTodos((old) => [...old, todo]);
     };
 

@@ -69,6 +69,7 @@ function Formulario({ agregarTodo }) {
                 type="text"
                 name="nombre"
                 placeholder="Ingresar Tarea"
+                autocomplete="off"
                 value={nombre}
                 onChange={handleChange}
             />
@@ -76,6 +77,7 @@ function Formulario({ agregarTodo }) {
             <textarea
                 name="descripcion"
                 placeholder="Descripcion de Tarea"
+                autocomplete="off"
                 value={descripcion}
                 onChange={handleChange}
             />
