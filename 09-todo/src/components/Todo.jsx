@@ -18,7 +18,11 @@ function Todo(props) {
                 <p>{descripcion}</p>
             </div>
             <div className="botones">
-                <button className="editar">Editar</button>
+                <button
+                    className="editar"
+                    onClick={() => props.editarItem(id)}
+                >
+                    Editar</button>
                 <button
                     className="eliminar"
                     onClick={() => props.eliminarItem(id)}
