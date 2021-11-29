@@ -84,24 +84,7 @@ form {
     flex-direction: column;
 }
 
-form h2 {
-    text-align: center;
-    font-weight: 400;
-    margin: 0 0 20px 0;
-}
-
-form .alert-danger {
-    width: 88%;
-    margin: -15px auto 20px auto;
-    text-align: left;
-    padding: 0;
-}
-form .alert-danger {
-    color: #ff7575;
-}
-form input,
-form textarea,
-form select {
+form input {
     width: 90%;
     margin: 0 auto 16px auto;
     outline: none;
@@ -111,24 +94,6 @@ form select {
     font-family: sans-serif;
     font-size: 1rem;
 }
-
-form textarea {
-    resize: vertical;
-    min-height: 80px;
-    max-height: 300px;
-}
-
-form .checkbox-section {
-    display: flex;
-    justify-content: flex-start;
-    width: 90%;
-    margin: 0 auto 16px auto;
-}
-form .checkbox-section input[type='checkbox'] {
-    width: auto;
-    margin: 5px 0 0 15px;
-}
-
 form button {
     width: 90%;
     margin: 0 auto;
@@ -163,63 +128,14 @@ form button:hover {
     border-radius: 0.25rem;
 }
 
-.todo-list .tags {
-    display: flex;
-    justify-content: flex-start;
+.todo-list input[type='checkbox'] {
+    width: auto;
+    margin: 5px 6px 0 0;
 }
 
-.todo-list .pen,
-.todo-list .fin,
-.todo-list .prioridad {
-    color: #fff;
-    padding: 2px 6px;
-    line-height: 1;
-    font-size: 0.8rem;
-    border-radius: 0.2rem;
-}
-
-.todo-list .pen {
-    background-color: #cd8925;
-}
-.todo-list .fin {
-    background-color: #4db175;
-}
-.todo-list .prioridad {
-    margin-left: 6px;
-    background: linear-gradient(45deg, #eda437, #bdad27);
-}
-
-.todo-list h3 {
-    font-size: 1.2rem;
-    margin: 8px 0;
-    letter-spacing: 0.5px;
-}
 .todo-list p {
     font-size: 1rem;
     margin: 0 0 8px 0;
-}
-
-.todo-list .botones {
-    display: flex;
-    justify-content: center;
-}
-
-.todo-list .botones button {
-    border: none;
-    color: #fff;
-    padding: 6px 10px;
-    line-height: 1;
-    font-size: 0.95rem;
-    border-radius: 0.2rem;
-    cursor: pointer;
-}
-
-.todo-list .botones button:nth-child(1) {
-    background-color: #2196f3;
-}
-.todo-list .botones button:nth-child(2) {
-    background-color: #af4646;
-    margin-left: 6px;
 }
 
 footer {
