@@ -1,6 +1,7 @@
 import logo from '../img/logo.svg';
+import PropTypes from 'prop-types';
 
-function Header({title}) {
+function Header({ title }) {
     return (
         <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
@@ -10,8 +11,11 @@ function Header({title}) {
 }
 
 Header.defaultProps = {
-    title: "Tasks Tracker"
-}
+    title: 'Tasks Tracker',
+};
 
+Header.protoTypes = {
+    title: PropTypes.string.isRequired,
+};
 
 export default Header;

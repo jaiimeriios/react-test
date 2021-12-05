@@ -72,20 +72,63 @@ main {
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
+main h2 {
+    text-align: center;
+}
+main .btn {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 7px 0;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 0.25rem;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+}
+
 /* form */
+.task {
+    background-color: #2e384c;
+    width: 96%;
+    margin: 10px auto 0 auto;
+    max-width: 500px;
+    border-radius: 0.25rem;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    border-left: solid 4px transparent;
+}
+
+.task.reminder {
+    border-left: solid 4px lightseagreen;
+}
+
+.task h3 {
+    display: flex;
+}
+
+.task h3 svg {
+    margin-left: auto;
+}
+
+
+
+
+
 form {
     background-color: #2e384c;
     width: 96%;
     margin: 10px auto 0 auto;
     max-width: 500px;
     border-radius: 0.25rem;
-    padding: 10px 0 20px 0;
+    padding: 16px;
     display: flex;
     flex-direction: column;
 }
-
 form input {
-    width: 90%;
+    width: 100%;
     margin: 0 auto 16px auto;
     outline: none;
     padding: 10px;
@@ -110,33 +153,6 @@ form button:hover {
     background-color: #06b6a4;
 }
 
-.todo-list {
-    width: 96%;
-    margin: 20px auto 0 auto;
-    max-width: 500px;
-    border-radius: 0.25rem;
-    padding: 10px 0 20px 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.todo-list li {
-    list-style-type: none;
-    padding: 10px;
-    background-color: #2e384c;
-    margin-bottom: 6px;
-    border-radius: 0.25rem;
-}
-
-.todo-list input[type='checkbox'] {
-    width: auto;
-    margin: 5px 6px 0 0;
-}
-
-.todo-list p {
-    font-size: 1rem;
-    margin: 0 0 8px 0;
-}
 
 footer {
     display: flex;
