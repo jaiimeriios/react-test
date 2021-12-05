@@ -28,23 +28,50 @@ body {
 
 .App-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     height: var(--header-height);
     background-color: var(--sections-color);
+    padding: 0 20px;
 }
 
-.App-header .App-logo {
+.App-header .logo-title {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo-title .App-logo {
     width: 50px;
     height: auto;
     pointer-events: none;
     user-select: none;
 }
 
-.App-header h1 {
+.logo-title h1 {
     text-align: center;
     font-weight: 400;
     line-height: 1.75;
     color: #fff;
+}
+
+.App-header .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.App-header .links a {
+    color: #2196f3;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 200ms ease-in-out;
+}
+.App-header .links a:hover {
+    color: #fff;
+}
+.App-header .links svg {
+    font-size: .85rem;
+    margin: 0 2px 0 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -113,10 +140,6 @@ main .btn {
     margin-left: auto;
 }
 
-
-
-
-
 form {
     background-color: #2e384c;
     width: 96%;
@@ -137,8 +160,8 @@ form input {
     font-family: sans-serif;
     font-size: 1rem;
 }
-form button {
-    width: 90%;
+form input[type=submit] {
+    width: 100%;
     margin: 0 auto;
     padding: 7px 0;
     font-size: 1.1rem;
@@ -149,10 +172,17 @@ form button {
     cursor: pointer;
 }
 
-form button:hover {
+form input[type=submit]:hover {
     background-color: #06b6a4;
 }
 
+.about {
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 0;
+    background-color: #333d50;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
 
 footer {
     display: flex;

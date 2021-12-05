@@ -1,8 +1,6 @@
 import Button from './Button';
 
 function Nav({ buttonClick, showAdd }) {
-    console.log(showAdd);
-
     return (
         <>
             <h2>Add Task</h2>

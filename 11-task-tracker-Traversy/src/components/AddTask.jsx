@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-
-
 function AddTask({onAdd}) {
 
     const [text, setText] = useState('')
@@ -44,7 +42,7 @@ function AddTask({onAdd}) {
                 onChange={(e) => setReminder(e.currentTarget.checked)}
             />
 
-            <input type="submit" value="Save" />
+            <input type="submit" value="Add Task" />
         </form>
     );
 }

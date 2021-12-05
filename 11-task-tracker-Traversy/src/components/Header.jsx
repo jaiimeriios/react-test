@@ -1,11 +1,25 @@
 import logo from '../img/logo.svg';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { AiOutlineHome } from 'react-icons/ai';
+import { FiGlobe } from 'react-icons/fi';
 
 function Header({ title }) {
     return (
         <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1>{title}</h1>
+            <div className="logo-title">
+                <img src={logo} className="App-logo" alt="logo" />
+                <h1>{title}</h1>
+            </div>
+
+            <div className="links">
+                <Link to="./">
+                    <AiOutlineHome />Home
+                </Link>
+                <Link to="/about">
+                    <FiGlobe />About
+                </Link>
+            </div>
         </header>
     );
 }
