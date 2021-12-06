@@ -1,5 +1,5 @@
 import { useFormulario } from '../hooks/useFormulario';
-import { notifyToast, notifyToastError } from './Toasts';
+import { notifyToastError } from './Toasts';
 
 function Formulario({ setNombrePersonaje }) {
     const [inputs, handleChange, reset] = useFormulario({
