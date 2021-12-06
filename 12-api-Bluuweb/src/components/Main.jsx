@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Formulario from "./Formulario";
 import PintarDatos from "./PintarDatos";
 
 function Main() {
 
     const [nombrePersonaje, setNombrePersonaje] = useState('')
+
+    useEffect(() => {
+        if (localStorage.getItem('nombreApi')) {
+            setNombrePersonaje(JSON.parse(localStorage.getItem('nombreApi')))
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('nombreApi', JSON.stringify(nombrePersonaje))
+    }, [nombrePersonaje])
 
     return (
         <main>

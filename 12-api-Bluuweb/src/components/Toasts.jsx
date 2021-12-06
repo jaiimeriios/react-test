@@ -1,11 +1,11 @@
 import { toast } from 'react-toastify';
 
-export const notifyToast = (inputText) =>
-    toast(`Buscando a ${inputText}!`, {
+export const notifyToast = (msg) =>
+    toast(msg, {
         position: 'bottom-center',
         icon: '🦄',
         theme: 'dark',
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -18,7 +18,7 @@ export const notifyToastError = (errorMsg) =>
         position: 'bottom-center',
         icon: '🔥',
         theme: 'dark',
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

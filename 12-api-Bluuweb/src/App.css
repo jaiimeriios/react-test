@@ -115,6 +115,13 @@ form [type=submit]:hover {
     background-color: #06b6a4;
 }
 
+.loading {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 40px 0 0 0;
+}
+
 
 .personajes-section {
     width: 96%;

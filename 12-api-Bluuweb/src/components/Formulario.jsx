@@ -17,7 +17,7 @@ function Formulario({ setNombrePersonaje }) {
             return;
         }
 
-        notifyToast(nombre);
+        // notifyToast(`Buscando a ${nombre}`);
         setNombrePersonaje(nombre.trim().toLowerCase());
         reset();
     };
