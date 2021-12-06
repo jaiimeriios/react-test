@@ -1,0 +1,153 @@
+:root {
+    --header-height: 50px;
+    --footer-height: 35px;
+    --sections-color: #2e384c;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.App-header {
+    display: flex;
+    justify-content: center;
+    height: var(--header-height);
+    background-color: var(--sections-color);
+}
+
+.App-header .logo-title {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.App-header .App-logo {
+    width: 50px;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+}
+
+.App-header h1 {
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin-color infinite 60s linear;
+    }
+}
+@keyframes App-logo-spin-color {
+    from {
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* main */
+main {
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 0;
+    background-color: #333d50;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+/* form */
+form {
+    background-color: #2e384c;
+    width: 96%;
+    margin: 10px auto 0 auto;
+    max-width: 500px;
+    border-radius: 0.25rem;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+form input {
+    width: 100%;
+    margin: 0;
+    outline: none;
+    padding: 10px;
+    border-radius: 0.25rem;
+    border: solid 2px rgba(0, 0, 0, 1);
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+form [type=submit] {
+    width: auto;
+    margin: 0 auto;
+    padding: 0 10px;
+    font-size: .9rem;
+    border: none;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color: #009688;
+    cursor: pointer;
+}
+
+form [type=submit]:hover {
+    background-color: #06b6a4;
+}
+
+
+.personajes-section {
+    width: 96%;
+    margin: 10px auto 0 auto;
+    max-width: 2000px;
+    border-radius: 0.25rem;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.personajes-section .card {
+    background-color: #2e384c;
+    width: 200px;
+    padding: 8px;
+    border-radius: .25rem;
+}
+.personajes-section .card img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: .95rem;
+    background-color: var(--sections-color);
+    height: var(--footer-height);
+}
