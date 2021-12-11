@@ -1,5 +1,5 @@
 :root {
-    --header-height: 50px;
+    --header-height: 45px;
     --footer-height: 35px;
     --sections-color: #2e384c;
 }
@@ -26,34 +26,35 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.App-header {
+header {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: var(--header-height);
     background-color: var(--sections-color);
 }
 
-.App-header .logo-title {
+header .logo-title {
     display: flex;
     justify-content: flex-start;
 }
 
-.App-header .App-logo {
+header img.logo {
     width: 50px;
     height: auto;
     pointer-events: none;
     user-select: none;
 }
 
-.App-header h1 {
+header h1 {
     text-align: center;
     font-weight: 400;
-    line-height: 1.5;
+    font-size: 1.5rem;
     color: #fff;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
+    img.logo {
         animation: App-logo-spin-color infinite 60s linear;
     }
 }

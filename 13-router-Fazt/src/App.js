@@ -1,13 +1,26 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import logo from './logo.svg';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import UsersPage from './pages/UsersPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
+        <>
+            <header>
+                <img src={logo} className="logo" alt="logo" />
                 <h1>ROUTER</h1>
             </header>
-        </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/users" element={<UsersPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+            </BrowserRouter>
+        </>
     );
 }
 
