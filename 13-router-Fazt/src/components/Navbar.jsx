@@ -1,10 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
 function Navbar() {
-    // const setAvtiveNavLink = (data) => {
-    //     console.log(data)
-    // }
-
     return (
         <nav>
             <ul>
@@ -22,6 +18,16 @@ function Navbar() {
                     <NavLink
                         className={({isActive}) => isActive ? "active" : ""}
                         to="/users">Users</NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        className={({isActive}) => isActive ? "active" : ""}
+                        to="/dashboard">Dashboard</NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        className={({isActive}) => isActive ? "active" : ""}
+                        to="/usuarios">Usuarios</NavLink>
                 </li>
             </ul>
         </nav>
