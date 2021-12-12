@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import UsersPage from './pages/UsersPage';
 import NotFoundPage from './pages/NotFoundPage';
+import Navbar from './components/Navbar';
 
 function App() {
     return (
@@ -12,7 +13,9 @@ function App() {
                 <img src={logo} className="logo" alt="logo" />
                 <h1>ROUTER</h1>
             </header>
+
             <BrowserRouter>
+                <Navbar />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/about" element={<AboutPage />} />

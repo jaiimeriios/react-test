@@ -68,3 +68,24 @@ header h1 {
         filter: hue-rotate(360deg);
     }
 }
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    gap: 10px;
+    padding: 10px 0 0 0;
+}
+nav ul a {
+    text-decoration: none;
+}
+nav ul a:hover {
+    color: #3673e9;
+}
+
+nav ul a.active {
+    color: #3f6fc7;
+    font-weight: 600;
+}
