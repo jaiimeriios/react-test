@@ -1,5 +1,6 @@
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import logo from './logo.svg';
-import './App.css';
 
 function App() {
     return (
@@ -8,6 +9,8 @@ function App() {
                 <img src={logo} className="logo" alt="logo" />
                 <h1>ROUTER</h1>
             </header>
+            <Navbar />
+            <Outlet />
         </>
     );
 }

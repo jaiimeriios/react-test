@@ -69,23 +69,26 @@ header h1 {
     }
 }
 
-nav ul {
+nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     list-style-type: none;
-    gap: 10px;
+    gap: 15px;
     padding: 10px 0 0 0;
 }
-nav ul a {
+nav a {
     text-decoration: none;
+    font-size: 1rem;
+    color: #183d89;
+    font-weight: 500;
 }
-nav ul a:hover {
+nav a:hover {
     color: #3673e9;
 }
 
-nav ul a.active {
+nav a.active {
     color: #3f6fc7;
     font-weight: 600;
 }
