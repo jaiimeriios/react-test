@@ -7,11 +7,13 @@ import App from './App';
 import Inicio from './routes/Inicio';
 import Blog from './routes/Blog';
 import Contacto from './routes/Contacto';
+import NotFound from './routes/NotFound';
 
 ReactDOM.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<App />}>
+                <Route path="*" element={<NotFound />} />
                 <Route index element={<Inicio />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/contacto" element={<Contacto />} />
