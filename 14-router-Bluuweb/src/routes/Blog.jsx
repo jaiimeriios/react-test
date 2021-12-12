@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 
 function Blog() {
@@ -18,7 +19,9 @@ function Blog() {
             <h2>Blog</h2>
             {data.map((item) => (
                 <h5 key={item.id}>
-                    {item.userId} - {item.title}
+                    <Link to={`/blog/${item.id}`}>
+                        {item.id} - {item.title} {item.userId}
+                    </Link>
                 </h5>
             ))}
         </>

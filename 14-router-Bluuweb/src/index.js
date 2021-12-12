@@ -8,6 +8,7 @@ import Inicio from './routes/Inicio';
 import Blog from './routes/Blog';
 import Contacto from './routes/Contacto';
 import NotFound from './routes/NotFound';
+import Post from './routes/Post';
 
 ReactDOM.render(
     <BrowserRouter>
@@ -16,6 +17,7 @@ ReactDOM.render(
                 <Route path="*" element={<NotFound />} />
                 <Route index element={<Inicio />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:id" element={<Post />} />
                 <Route path="/contacto" element={<Contacto />} />
             </Route>
         </Routes>
