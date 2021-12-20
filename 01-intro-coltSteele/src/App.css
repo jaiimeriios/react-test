@@ -70,3 +70,13 @@ main {
     background-color: #333d50;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
+
+.text-primary {
+    color: var(--sections-color);
+}
+.text-danger {
+    color: crimson;
+}
+.text-info {
+    color: royalblue;
+}
