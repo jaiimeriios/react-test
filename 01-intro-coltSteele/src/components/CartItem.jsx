@@ -15,8 +15,8 @@ function CartItem({ id, name, price, qty, updateQty }) {
                 {qty}
                 <button onClick={add}>+</button>
             </div>
-            <div>Price: ${price}</div>
-            <div>Total: ${qty * price}</div>
+            <div>Price: ${(price).toFixed(2)}</div>
+            <div>Total: ${(qty * price).toFixed(2)}</div>
         </div>
     );
 }
