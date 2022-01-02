@@ -13,14 +13,14 @@ function Greeter({ name, age = 0, emocion = 1 }) {
 
             <button
                 onClick={handleClick}>
-                    HOLA
+                    HOLA - click
             </button>
             <button
                 onDoubleClick={() => {
                     console.log(Number(age));
                 }}
             >
-                en Linea
+                en Linea - dbClick
             </button>
         </div>
     );
