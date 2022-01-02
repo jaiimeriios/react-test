@@ -1,11 +1,20 @@
-function CartItem({ id, name, price, qty }) {
+function CartItem({ id, name, price, qty, updateQty }) {
 
-    // console.log(item)
+    const add = () => {
+        updateQty(id, qty + 1);
+    };
+    const sub = () => {
+        updateQty(id, qty - 1);
+    };
 
     return (
         <div className="cart-item">
-            <div>Name: {name}</div>
-            <div>Qty: {qty}</div>
+            <div>{name}</div>
+            <div>
+                <button onClick={sub} disabled={qty < 1}>-</button>
+                {qty}
+                <button onClick={add}>+</button>
+            </div>
             <div>Price: ${price}</div>
             <div>Total: ${qty * price}</div>
         </div>
