@@ -1,13 +1,16 @@
 import React from 'react';
 import SinglePost from './SinglePost';
-import postJson from './posts.json';
+import postData from './postsData.json';
 
 const Posts = ({ title }) => {
+    
+    console.log(postData);
+
     return (
         <>
             <h2>{title}</h2>
             <div className="posts">
-                {postJson.map((post, i) => (
+                {postData.map((post, i) => (
                     <SinglePost key={i} i={i} post={post} />
                 ))}
             </div>
