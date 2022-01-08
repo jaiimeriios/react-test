@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
-import './index.css'
-import logo from './logo.svg'
+import React, { useState } from 'react';
+import logo from '../../logo.svg';
 
-const App = () => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [showPassword, setShowPassword] = useState(false)
+const EventHandle = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     return (
-
-
         <div className="container">
             <img src={logo} className="App-logo" alt="logo" />
 
@@ -18,7 +15,7 @@ const App = () => {
                 placeholder="Enter Username"
                 value={username}
                 onChange={(e) => {
-                    setUsername(e.target.value)
+                    setUsername(e.target.value);
                 }}
             />
             <input
@@ -26,14 +23,20 @@ const App = () => {
                 placeholder="Enter Password"
                 value={password}
                 onChange={(e) => {
-                    setPassword(e.target.value)
+                    setPassword(e.target.value);
                 }}
             />
             <h2>{username}</h2>
             <h2>{showPassword ? password : '*'.repeat(password.length)}</h2>
-            <button onClick={(e) => {setShowPassword(!showPassword)}}>Show/Hide Password</button>
+            <button
+                onClick={(e) => {
+                    setShowPassword(!showPassword);
+                }}
+            >
+                Show/Hide Password
+            </button>
         </div>
-    )
-}
+    );
+};
 
-export default App
+export default EventHandle;
