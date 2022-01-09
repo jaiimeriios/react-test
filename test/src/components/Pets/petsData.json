@@ -22,5 +22,11 @@
         "name": "Paw",
         "species": "dog",
         "age": "7"
+    },
+    {
+        "id": 5,
+        "name": "Chirp",
+        "species": "bird",
+        "age": "1"
     }
 ]

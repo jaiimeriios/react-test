@@ -166,12 +166,21 @@ button.btn:hover {
     outline: none;
     padding: .2rem;
     margin: 0 1%;
+    border: solid 1px #7273ad;
 }
 .pet-form input:focus {
-    border: solid 1px #ff5722;
+    border-color: #ff5722;
 }
 .pet-form input::placeholder {
     color: rgb(151, 151, 151);
+}
+
+.pets-section {
+    padding: 1rem;
+    border: solid 1px #354056;
+    border-radius: 0.25rem;
+    background-color: #263044;
+    box-shadow: 2px 2px 6px #00000026;
 }
 
 .posts {

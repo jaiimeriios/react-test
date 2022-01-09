@@ -3,7 +3,7 @@ import postData from './postsData.json';
 
 const Posts = ({ title }) => {
     
-    console.log(postData);
+    // console.log(postData);
 
     return (
         <>
