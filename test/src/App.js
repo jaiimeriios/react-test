@@ -2,17 +2,20 @@ import React from 'react';
 import Posts from './components/Post/Posts';
 import EventHandle from './components/EventHandleing/EventHandle';
 import Pets from './components/Pets/Pets';
+import Header from './components/Header/Header';
 
 const App = () => {
     return (
-        <div className="App">
+        <>
+            <Header />
+            <main>
+                <EventHandle />
 
-            <EventHandle />
+                <Pets />
 
-            <Pets />
-
-            <Posts title="TITULO" />
-        </div>
+                <Posts title="posts" />
+            </main>
+        </>
     );
 };
 

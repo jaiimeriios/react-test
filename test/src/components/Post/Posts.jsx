@@ -1,4 +1,3 @@
-import React from 'react';
 import SinglePost from './SinglePost';
 import postData from './postsData.json';
 

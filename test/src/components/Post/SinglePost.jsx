@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SinglePost = ({ post: { title, img, body, author }, i }) => (
     <div className="post">
         <h3>{title}</h3>

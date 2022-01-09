@@ -1,4 +1,3 @@
-import React from 'react';
 import petsData from './petsData.json';
 
 const Pets = () => {

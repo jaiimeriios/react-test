@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from '../../logo.svg';
 
 const EventHandle = () => {
     const [username, setUsername] = useState('');
@@ -8,8 +7,6 @@ const EventHandle = () => {
 
     return (
         <div className="container">
-            <img src={logo} className="App-logo" alt="logo" />
-
             <input
                 type="text"
                 placeholder="Enter Username"
