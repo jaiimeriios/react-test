@@ -1,3 +1,4 @@
+import Button from '../Button';
 import petsData from './petsData.json';
 
 const Pets = () => {
@@ -5,6 +6,7 @@ const Pets = () => {
 
     return (
         <>
+            <AddPetForm />
             {petsData.map((pet) => (
                 <Pet key={pet.id} pet={pet} />
             ))}
@@ -19,5 +21,32 @@ const Pet = ({ pet: { name, species, age } }) => {
         </p>
     );
 };
+
+
+
+
+const AddPetForm = () => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
+    const handle = () => {
+        console.log('click')
+    }
+
+    return (
+        <form className='pet-form' onSubmit={handleSubmit}>
+            <fieldset>
+                <legend>Add New Pet</legend>
+                <input placeholder="Name" />
+                <input placeholder="Species" />
+                <input placeholder="Age" />
+
+                <Button btnText="Add Pet" onClick={handle} />
+            </fieldset>
+        </form>
+    );
+}
 
 export default Pets;

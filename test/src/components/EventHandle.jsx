@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from './Button';
 
 const EventHandle = () => {
     const [username, setUsername] = useState('');
@@ -28,13 +29,12 @@ const EventHandle = () => {
                 />
                 <h2>{username}</h2>
                 <h2>{showPassword ? password : '*'.repeat(password.length)}</h2>
-                <button
+                <Button
+                    btnText={`${!showPassword ? 'Show' : 'Hide'} password`}
                     onClick={(e) => {
                         setShowPassword(!showPassword);
                     }}
-                >
-                    Show/Hide Password
-                </button>
+                />
             </div>
         </>
     );
@@ -52,11 +52,11 @@ const Counter = () => {
 
     return (
         <div className="counter">
-            <button onClick={sub}>-</button>
+            <Button btnText="-" onClick={sub} />
             <span className={count === 0 ? 'zero' : count > 0 ? 'pos' : 'neg'}>
                 {count}
             </span>
-            <button onClick={add}>+</button>
+            <Button btnText="+" onClick={add} />
         </div>
     );
 };
