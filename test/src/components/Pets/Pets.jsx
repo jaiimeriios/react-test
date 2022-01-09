@@ -3,15 +3,18 @@ import Button from '../Button';
 import petsData from './petsData.json';
 
 const Pets = () => {
+
     const [pets, setPets] = useState(petsData);
 
     const addPet = (newPet) => {
-        setPets((old) => [...old, newPet]);
+        setPets((old) => {
+            return [...old, newPet]
+        });
     };
 
     return (
         <>
-            <AddPetForm addPet={addPet} />
+            <AddPetForm pets={pets} addPet={addPet} />
 
             <div className="pets-section">
                 {pets.map((pet) => (
@@ -27,9 +30,8 @@ const Pets = () => {
 
 const Pet = ({ pet: { name, species, age }, setPets, id }) => {
     const handleDelete = () => {
-        setPets((prev) => prev.filter((pet) => pet.id != id));
+        setPets((prev) => prev.filter((pet) => pet.id !== id));
     };
-
     return (
         <p>
             {name} is a {species} and is {age} year{age > 1 && 's'} old.
@@ -38,7 +40,10 @@ const Pet = ({ pet: { name, species, age }, setPets, id }) => {
     );
 };
 
-const AddPetForm = ({ addPet }) => {
+
+
+
+const AddPetForm = ({ pets, addPet }) => {
   
     const [name, setName] = useState('');
     const [species, setSpecies] = useState('');
@@ -52,7 +57,7 @@ const AddPetForm = ({ addPet }) => {
         } else {
 
             addPet({
-                id: new Date(),
+                id: pets.length + 1,
                 name: name,
                 species: species,
                 age: age
