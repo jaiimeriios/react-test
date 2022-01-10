@@ -24,7 +24,7 @@ const Time = () => {
         };
     }, []);
 
-    return <p>⌚ {time}</p>;
+    return <p className='time'>⌚ {time}</p>;
 };
 
 export default Time;

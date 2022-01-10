@@ -4,6 +4,7 @@ import Pets from './components/Pets/Pets';
 
 import EventHandle from './components/EventHandle';
 import Time from './components/Time';
+import MathGame from './components/MathGame';
 
 const App = () => {
     return (
@@ -11,6 +12,10 @@ const App = () => {
             <Header />
             <main>
                 <Time />
+
+
+                <MathGame />
+
 
                 <EventHandle />
 
