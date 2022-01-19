@@ -95,7 +95,7 @@ const AddPetForm = ({ pets, addPet }) => {
                     placeholder="age in years"
                 />
 
-                <Button btnText="Add Pet" onClick={null} />
+                <Button btnText="Add Pet" clickEvent={null} />
             </fieldset>
         </form>
     );

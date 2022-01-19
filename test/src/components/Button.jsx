@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-function Button({ btnText, onClick }) {
+function Button({ btnText, clickEvent }) {
     return (
-        <button className="btn" onClick={onClick}>
+        <button className="btn" onClick={clickEvent}>
             {btnText}
         </button>
     );

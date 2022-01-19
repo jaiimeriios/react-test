@@ -31,7 +31,7 @@ const EventHandle = () => {
                 <h2>{showPassword ? password : '*'.repeat(password.length)}</h2>
                 <Button
                     btnText={`${!showPassword ? 'Show' : 'Hide'} password`}
-                    onClick={(e) => {
+                    clickEvent={(e) => {
                         setShowPassword(!showPassword);
                     }}
                 />
@@ -50,13 +50,17 @@ const Counter = () => {
         setCount(count - 1);
     };
 
+    const mames = () => {
+        console.log("asdfasdf")
+    }
+
     return (
         <div className="counter">
-            <Button btnText="-" onClick={sub} />
+            <Button btnText="-" clickEvent={sub} />
             <span className={count === 0 ? 'zero' : count > 0 ? 'pos' : 'neg'}>
                 {count}
             </span>
-            <Button btnText="+" onClick={add} />
+            <Button btnText="+" clickEvent={add} />
         </div>
     );
 };
