@@ -50,10 +50,6 @@ const Counter = () => {
         setCount(count - 1);
     };
 
-    const mames = () => {
-        console.log("asdfasdf")
-    }
-
     return (
         <div className="counter">
             <Button btnText="-" clickEvent={sub} />
