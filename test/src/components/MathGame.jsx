@@ -11,7 +11,7 @@ const MathGame = () => {
     const resetButton = useRef(null);
 
     useEffect(() => {
-        if (score == 10 || mistake == 3) {
+        if (score === 10 || mistake === 3) {
             setTimeout(() => {
                 resetButton.current.focus();
             }, 300)
@@ -21,17 +21,17 @@ const MathGame = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         let correctAnswer;
-        if (currentProblem.operator == '+') {
+        if (currentProblem.operator === '+') {
             correctAnswer = currentProblem.numberOne + currentProblem.numberTwo;
         }
-        if (currentProblem.operator == '-') {
+        if (currentProblem.operator === '-') {
             correctAnswer = currentProblem.numberOne - currentProblem.numberTwo;
         }
-        if (currentProblem.operator == 'x') {
+        if (currentProblem.operator === 'x') {
             correctAnswer = currentProblem.numberOne * currentProblem.numberTwo;
         }
 
-        if (correctAnswer == parseInt(userAnswer, 10)) {
+        if (correctAnswer === parseInt(userAnswer, 10)) {
             setScore(score + 1);
             setCurrentProblem(generateProblem());
         } else {
@@ -92,12 +92,12 @@ const MathGame = () => {
             </div>
             <div
                 className={`overlay ${
-                    mistake == 3 || score == 10 ? 'overlay-visible' : ''
+                    mistake === 3 || score === 10 ? 'overlay-visible' : ''
                 }`}
             >
                 <div className="overlay-inner">
                     <p className="end-message">
-                        {score == 10 ? 'Won' : 'Loss'}
+                        {score === 10 ? 'Won' : 'Loss'}
                     </p>
                     <button ref={resetButton} onClick={resetGame} className="reset-button">
                         Start Over
@@ -118,7 +118,7 @@ const Status = ({ score, mistake }) => {
 };
 
 const ProgressBar = ({ score }) => {
-    console.log(score);
+    // console.log(score);
     return (
         <div className="progress">
             <div className="boxes">
