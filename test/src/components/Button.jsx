@@ -10,12 +10,12 @@ function Button({ btnText, clickEvent }) {
 
 Button.defaultProps = {
     btnText: 'button text',
-    onClick: () => console.log('hazme funcionar'),
+    clickEvent: () => console.log('hazme funcionar'),
 };
 
 Button.propTypes = {
     btnText: PropTypes.string,
-    onClick: PropTypes.func,
+    clickEvent: PropTypes.func,
 };
 
 export default Button;
