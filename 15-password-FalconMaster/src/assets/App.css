@@ -52,7 +52,7 @@ header h1 {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    img.app-logo {
+    img.logo {
         animation: App-logo-spin-color infinite 60s linear;
     }
 }

@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import generarPassword from '../functions/generarPassword';
+
 import {
     BotonIncrementar,
     BotonDisminuir,
@@ -21,8 +23,15 @@ function Main() {
     const [disabledIncrementar, setDisabledIncrementar] = useState(false);
     const [disabledDisminuir, setDisabledDisminuir] = useState(false);
 
+    const [passwordGenerado, setPasswordGenerado] = useState('');
+    
+    useEffect(() => {
+        setPasswordGenerado(generarPassword(configuracion));
+    }, [configuracion])
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        setPasswordGenerado(generarPassword(configuracion));
     };
 
     const incrementarCaracteres = () => {
@@ -53,6 +62,30 @@ function Main() {
         });
     };
 
+    const toggleSimbolos = () => {
+        setConfiguracion((prevConf) => {
+            const newConf = { ...prevConf };
+            newConf.simbolos = !newConf.simbolos;
+            return newConf;
+        });
+    };
+
+    const toggleNumeros = () => {
+        setConfiguracion((prevConf) => {
+            const newConf = { ...prevConf };
+            newConf.numeros = !newConf.numeros;
+            return newConf;
+        });
+    };
+
+    const toggleMayusculas = () => {
+        setConfiguracion((prevConf) => {
+            const newConf = { ...prevConf };
+            newConf.mayusculas = !newConf.mayusculas;
+            return newConf;
+        });
+    };
+
     return (
         <main>
             <form onSubmit={handleSubmit}>
@@ -74,24 +107,33 @@ function Main() {
                 <Fila>
                     <label>Incluir Simbolos</label>
                     <Controles>
-                        <BotonCheck />
+                        <BotonCheck
+                            clickEvent={toggleSimbolos}
+                            seleccionado={configuracion.simbolos}
+                        />
                     </Controles>
                 </Fila>
                 <Fila>
                     <label>Incluir Numeros</label>
                     <Controles>
-                        <BotonCheck />
+                        <BotonCheck
+                            clickEvent={toggleNumeros}
+                            seleccionado={configuracion.numeros}
+                        />
                     </Controles>
                 </Fila>
                 <Fila>
                     <label>Incluir Mayusculas</label>
                     <Controles>
-                        <BotonCheck />
+                        <BotonCheck
+                            clickEvent={toggleMayusculas}
+                            seleccionado={configuracion.mayusculas}
+                        />
                     </Controles>
                 </Fila>
                 <Fila>
                     <BotonGenerar />
-                    <Input type="text" readOnly value="adsfsd" />
+                    <Input type="text" readOnly value={passwordGenerado} />
                 </Fila>
             </form>
         </main>
