@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-export const BotonDisminuir = () => {
+export const BotonDisminuir = ({disabled, clickEvent}) => {
+
     return (
-        <Boton>
+        <Boton disabled={disabled} onClick={clickEvent}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -20,9 +21,9 @@ export const BotonDisminuir = () => {
     );
 };
 
-export const BotonIncrementar = () => {
+export const BotonIncrementar = ({disabled, clickEvent}) => {
     return (
-        <Boton>
+        <Boton disabled={disabled} onClick={clickEvent}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -95,6 +96,11 @@ const Boton = styled.button`
 
     &:hover {
         background-color: #039b8d;
+    }
+    
+    &:disabled {
+        background-color: #245a55;
+        cursor: default;
     }
 `;
 

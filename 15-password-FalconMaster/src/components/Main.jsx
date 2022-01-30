@@ -1,16 +1,74 @@
+import { useState } from 'react';
 import styled from 'styled-components';
-import { BotonIncrementar, BotonDisminuir, BotonCheck, BotonGenerar } from './Boton';
+import {
+    BotonIncrementar,
+    BotonDisminuir,
+    BotonCheck,
+    BotonGenerar,
+} from './Boton';
 
 function Main() {
+    const conf = {
+        caracteres: 7,
+        simbolos: true,
+        numeros: true,
+        mayusculas: true,
+    };
+    const [configuracion, setConfiguracion] = useState(conf);
+
+    const maxCaracters = 20;
+    const minCaracters = 5;
+    const [disabledIncrementar, setDisabledIncrementar] = useState(false);
+    const [disabledDisminuir, setDisabledDisminuir] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
+    const incrementarCaracteres = () => {
+        setConfiguracion((prevConf) => {
+            const newConf = { ...prevConf };
+            newConf.caracteres += 1;
+            if (newConf.caracteres == maxCaracters) {
+                setDisabledIncrementar(true);
+            }
+            if (newConf.caracteres >= minCaracters) {
+                setDisabledDisminuir(false);
+            }
+            return newConf;
+        });
+    };
+
+    const disminuirNumero = () => {
+        setConfiguracion((prevConf) => {
+            const newConf = { ...prevConf };
+            newConf.caracteres -= 1;
+            if (newConf.caracteres == minCaracters) {
+                setDisabledDisminuir(true);
+            }
+            if (newConf.caracteres <= maxCaracters) {
+                setDisabledIncrementar(false);
+            }
+            return newConf;
+        });
+    };
+
     return (
         <main>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <Fila>
                     <label>Numero de Caracteres</label>
                     <Controles>
-                        <BotonDisminuir />
-                        <span>0</span>
-                        <BotonIncrementar />
+                        <BotonDisminuir
+                            disabled={disabledDisminuir}
+                            clickEvent={disminuirNumero}
+                        />
+
+                        <span>{configuracion.caracteres}</span>
+                        <BotonIncrementar
+                            disabled={disabledIncrementar}
+                            clickEvent={incrementarCaracteres}
+                        />
                     </Controles>
                 </Fila>
                 <Fila>
@@ -65,7 +123,7 @@ const Controles = styled.div`
 `;
 
 const Input = styled.input`
-width: 100%;
+    width: 100%;
     color: #fff;
     align-items: center;
     height: 40px;
@@ -75,16 +133,16 @@ width: 100%;
     outline: none;
     background-color: #26374c;
     transition: all 200ms ease-in;
-    border: solid 1px rgba(255,255,255,.15);
-    
+    border: solid 1px rgba(255, 255, 255, 0.15);
+
     &:hover {
         border-color: #127e74;
     }
 
-    &::selection{
+    &::selection {
         background-color: #26374c;
     }
     &::moz-selection {
         background-color: #26374c;
     }
-`
+`;
