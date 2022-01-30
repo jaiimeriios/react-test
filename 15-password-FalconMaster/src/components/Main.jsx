@@ -181,10 +181,10 @@ const Input = styled.input`
         border-color: #127e74;
     }
 
-    &::selection {
-        background-color: #26374c;
-    }
-    &::moz-selection {
-        background-color: #26374c;
-    }
+    // &::selection {
+    //     background-color: #26374c;
+    // }
+    // &::moz-selection {
+    //     background-color: #26374c;
+    // }
 `;
