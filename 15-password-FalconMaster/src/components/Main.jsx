@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { BotonIncrementar, BotonDisminuir, BotonCheck, BotonGenerar } from './Boton';
 
 function Main() {
     return (
@@ -7,38 +8,32 @@ function Main() {
                 <Fila>
                     <label>Numero de Caracteres</label>
                     <Controles>
-                        <Boton>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                className="bi bi-dash-lg"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"
-                                />
-                            </svg>
-                        </Boton>
+                        <BotonDisminuir />
                         <span>0</span>
-                        <Boton>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                className="bi bi-plus-lg"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
-                                />
-                            </svg>
-                        </Boton>
+                        <BotonIncrementar />
                     </Controles>
+                </Fila>
+                <Fila>
+                    <label>Incluir Simbolos</label>
+                    <Controles>
+                        <BotonCheck />
+                    </Controles>
+                </Fila>
+                <Fila>
+                    <label>Incluir Numeros</label>
+                    <Controles>
+                        <BotonCheck />
+                    </Controles>
+                </Fila>
+                <Fila>
+                    <label>Incluir Mayusculas</label>
+                    <Controles>
+                        <BotonCheck />
+                    </Controles>
+                </Fila>
+                <Fila>
+                    <BotonGenerar />
+                    <Input type="text" readOnly value="adsfsd" />
                 </Fila>
             </form>
         </main>
@@ -69,22 +64,27 @@ const Controles = styled.div`
     }
 `;
 
-const Boton = styled.button`
-    width: 100%;
+const Input = styled.input`
+width: 100%;
     color: #fff;
-    display: inline-flex;
     align-items: center;
     height: 40px;
     font-size: 18px;
     text-align: center;
-    justify-content: center;
-    border: none;
     border-radius: 0.25rem;
-    cursor: pointer;
+    outline: none;
+    background-color: #26374c;
     transition: all 200ms ease-in;
-    background-color: #127e74;
-
+    border: solid 1px rgba(255,255,255,.15);
+    
     &:hover {
-        background-color: #039b8d;
+        border-color: #127e74;
     }
-`;
+
+    &::selection{
+        background-color: #26374c;
+    }
+    &::moz-selection {
+        background-color: #26374c;
+    }
+`
