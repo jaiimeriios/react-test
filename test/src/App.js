@@ -5,6 +5,7 @@ import Pets from './components/Pets/Pets';
 import EventHandle from './components/EventHandle';
 import Time from './components/Time';
 import MathGame from './components/MathGame';
+import Fetch from './components/Fetch/Fetch';
 
 const App = () => {
     return (
@@ -13,15 +14,16 @@ const App = () => {
             <main>
                 <Time />
 
-
                 <MathGame />
-
 
                 <EventHandle />
 
                 <Pets />
 
                 <Posts title="posts" />
+
+                <Fetch />
+                <br /><br /><br /><br /><br /><br />
             </main>
         </>
     );
