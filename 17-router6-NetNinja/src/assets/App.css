@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=VT323&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --link-color: rgb(11, 155, 124);
+    --link-hover-color: rgb(3, 196, 154);
+}
+
+body {
+    margin: 20px;
+    font-family: 'Poppins';
+    color: #333;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--link-hover-color);
+}
+
+img {
+    max-width: 100%;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e2e2e2;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+}
+
+nav h1 {
+    margin-right: auto;
+}
+nav h1 a {
+    display: flex;
+    align-items: center;
+    color: #000;
+}
+nav h1 a:hover {
+    color: var(--link-hover-color);
+}
+
+nav img {
+    width: 60px;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    nav img {
+        animation: App-logo-spin-color infinite 60s linear;
+    }
+}
+
+@keyframes App-logo-spin-color {
+    from {
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+
+.content {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.offers,
+.products {
+    display: flex;
+    gap: 20px;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
