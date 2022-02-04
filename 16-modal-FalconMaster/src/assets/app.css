@@ -121,8 +121,18 @@ main {
     /* align-items: ${props => props.posicionModal ? props.posicionModal : 'center'}; */
 }
 
+.overlay.no-bg {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 .overlay.center {
     align-items: center;
+}
+.overlay.top {
+    align-items: flex-start;
+}
+.overlay.bottom {
+    align-items: flex-end;
 }
 
 .contenedor-modal {
@@ -130,12 +140,26 @@ main {
     min-height: 100px;
     position: relative;
     border-radius: 0.25rem;
-    padding: 20px;
+    padding: 0;
     border: solid 1px rgba(255, 255, 255, 0.1);
     background: linear-gradient(45deg, #1e2f48, #203a52);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
     /* padding: ${props => props.padding ? props.padding : '20px'}; */
 }
+
+.p-20 {
+    padding: 20px;
+}
+
+.contenedor-modal img {
+    min-width: 100%;
+    max-width: 100%;
+    /* width: clamp(100%, 100%, 100% ); */
+    height: auto;
+    display: block;
+}
+
 
 .encabezado-modal {
     display: flex;

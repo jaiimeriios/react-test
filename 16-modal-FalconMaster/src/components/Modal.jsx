@@ -1,9 +1,21 @@
-function Modal({ children, estado, setEstado }) {
+function Modal({
+    estado,
+    setEstado,
+    hideOverlay,
+    padding,
+    showHeader,
+    position,
+    titulo = 'titulo',
+    children,
+}) {
     return (
         <>
             {estado && (
-                <div className="overlay center">
-                    <div className="contenedor-modal">
+                <div
+                    // className="overlay center"
+                    className={`overlay ${position} ${hideOverlay && 'no-bg'} `}
+                >
+                    <div className={`contenedor-modal ${padding && 'p-20'}`}>
                         <button
                             className="boton-cerrar"
                             onClick={() => setEstado(false)}
@@ -20,10 +32,11 @@ function Modal({ children, estado, setEstado }) {
                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                             </svg>
                         </button>
-                        <div className="encabezado-modal">
-                            <h2>Titulo</h2>
-                        </div>
-                        <h3>hola</h3>
+                        {showHeader && (
+                            <div className="encabezado-modal">
+                                <h2>{titulo}</h2>
+                            </div>
+                        )}
                         {children}
                     </div>
                 </div>
