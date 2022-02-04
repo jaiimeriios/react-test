@@ -52,7 +52,7 @@ function App() {
                     titulo="hola modal 1"
                 >
                     <h3>hola</h3>
-                    <p>Lorem ipsum dolor sit amet </p>
+                    <p>Lorem ipsum dolor sit amet</p>
                     <button onClick={modal1Aceptar}>Aceptar</button>
                 </Modal>
                 <Modal
@@ -65,7 +65,7 @@ function App() {
                     titulo="no titulo"
                 >
                     <h3>Modal 2</h3>
-                    <p>Lorem ipsum dolor sit amet </p>
+                    <p>Lorem ipsum dolor sit amet</p>
                     <button onClick={modal2Aceptar}>Aceptar</button>
                 </Modal>
                 <Modal
