@@ -13,7 +13,7 @@ function App() {
             <BrowserRouter>
                 <nav>
                     <h1>
-                        <Link to="/">
+                        <Link to="/" >
                             <img src={logo} />
                             React Router 6
                         </Link>
