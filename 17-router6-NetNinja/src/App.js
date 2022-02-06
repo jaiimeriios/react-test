@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
 import logo from './assets/logo.svg';
 
 // pages
@@ -13,7 +13,7 @@ function App() {
             <BrowserRouter>
                 <nav>
                     <h1>
-                        <Link to="/" >
+                        <Link to="/">
                             <img src={logo} />
                             React Router 6
                         </Link>
@@ -22,18 +22,25 @@ function App() {
                     <Link to="/about">About</Link>
                     <Link to="/products">Products</Link>
                 </nav>
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/about">
-                        <About />
-                    </Route>
-                    <Route path="/products/:id">
-                        <ProductDetails />
-                    </Route>
-                    <Route path="/products">
-                        <Products />
-                    </Route>
-                </Switch>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/products/:id" element={<ProductDetails />} />
+                    <Route
+                        path="/test"
+                        element={
+                            <div>
+                                <h2>test</h2>
+                                <p>Hello</p>
+                            </div>
+                        }
+                    />
+                    <Route
+                        path="/redirect"
+                        element={<Navigate to="/about" />}
+                    />
+                </Routes>
             </BrowserRouter>
         </div>
     );

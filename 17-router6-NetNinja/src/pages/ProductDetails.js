@@ -1,14 +1,17 @@
-import { Route, useParams, useRouteMatch } from 'react-router-dom';
+import { Link, Route, useParams } from 'react-router-dom';
 
 // nested routes
 import Offers from './Offers';
 
 export default function ProductDetails() {
     const { id } = useParams();
-    const { path } = useRouteMatch();
+    // const { path } = useRouteMatch();
 
     return (
         <div className="content">
+            
+            <Link to="/products">Go Back</Link>
+            <br /><br />
             <div className="product">
                 <div className="image">
                     <img src="https://via.placeholder.com/520x460" alt="" />
@@ -33,9 +36,9 @@ export default function ProductDetails() {
                 </div>
             </div>
 
-            <Route path={`${path}/offers`}>
+            {/* <Route path={`${path}/offers`}>
                 <Offers />
-            </Route>
+            </Route> */}
         </div>
     );
 }
