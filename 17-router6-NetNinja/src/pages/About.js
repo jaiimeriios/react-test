@@ -1,9 +1,11 @@
-import { Route } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 // nested routes
 import Offers from './Offers';
 
 export default function About() {
+    const navigate = useNavigate();
+
     return (
         <div className="content">
             <h2>About Us</h2>
@@ -17,6 +19,7 @@ export default function About() {
                 Corporis in et placeat unde sapiente perspiciatis minus!
                 Recusandae, ad!
             </p>
+            <br />
 
             <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime
@@ -28,10 +31,16 @@ export default function About() {
                 Corporis in et placeat unde sapiente perspiciatis minus!
                 Recusandae, ad!
             </p>
+            <br />
 
-            {/* <Route path="/about/offers">
-                <Offers />
-            </Route> */}
+            <button onClick={() => navigate('/products')}>
+                'Navigate' to Products
+            </button>
+            <br />
+
+            <Routes>
+                <Route path="offers" element={<Offers />} />
+            </Routes>
         </div>
     );
 }
