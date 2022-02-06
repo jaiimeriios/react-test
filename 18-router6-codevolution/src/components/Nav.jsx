@@ -15,6 +15,9 @@ const Nav = () => {
             <NavLink style={navLinkStyle} to="/about">
                 About
             </NavLink>
+            <NavLink style={navLinkStyle} to="/products">
+                Products
+            </NavLink>
             {/* <NavLink style={navLinkStyle} to="/order-summary">
                 Order Summary
             </NavLink> */}
