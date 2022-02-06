@@ -8,9 +8,11 @@ export default function ProductDetails() {
 
     return (
         <div className="content">
-            
             <Link to="/products">Go Back</Link>
-            <br /><br />
+            <br />
+            <Link to={`/products/${id}/offers`}>offers</Link>
+            <br />
+            <br />
             <div className="product">
                 <div className="image">
                     <img src="https://via.placeholder.com/520x460" alt="" />
@@ -34,11 +36,6 @@ export default function ProductDetails() {
                     </p>
                 </div>
             </div>
-
-            {/* <Route path={`${path}/offers`}>
-                <Offers />
-            </Route> */}
-            
 
             <Routes>
                 <Route path="offers" element={<Offers />} />

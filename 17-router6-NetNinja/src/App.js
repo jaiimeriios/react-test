@@ -1,7 +1,8 @@
 import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
-import logo from './assets/logo.svg';
 
+// components
+import Header from './components/Header';
 // pages
 import Home from './pages/Home';
 import About from './pages/About';
@@ -14,25 +15,17 @@ function App() {
     return (
         <div className="App">
             <BrowserRouter>
-                <nav>
-                    <h1>
-                        <Link to="/">
-                            <img src={logo} />
-                            React Router 6
-                        </Link>
-                    </h1>
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/products">Products</Link>
-                    <Link to="/test">Test</Link>
-                    <Link to="/redirect">Redirect</Link>
-                    <Link to="/checkout">Checkout</Link>
-                </nav>
+
+                <Header />
+
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about/*" element={<About />} />
                     <Route path="/products" element={<Products />} />
-                    <Route path="/products/:id/*" element={<ProductDetails />} />
+                    <Route
+                        path="/products/:id/*"
+                        element={<ProductDetails />}
+                    />
                     <Route
                         path="/test"
                         element={

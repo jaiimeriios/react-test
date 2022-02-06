@@ -31,30 +31,23 @@ img {
     max-width: 100%;
 }
 
-nav {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    max-width: 960px;
-    margin: 0 auto;
-    border-bottom: 1px solid #e2e2e2;
-    margin-bottom: 40px;
-    padding-bottom: 15px;
-}
 
-nav h1 {
-    margin-right: auto;
+header h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
-nav h1 a {
+header h1 a {
     display: flex;
     align-items: center;
     color: #000;
 }
-nav h1 a:hover {
+header h1 a:hover {
     color: var(--link-hover-color);
 }
 
-nav img {
+header img {
     width: 60px;
     height: auto;
     pointer-events: none;
@@ -62,7 +55,7 @@ nav img {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    nav img {
+    header img {
         animation: App-logo-spin-color infinite 60s linear;
     }
 }
@@ -76,6 +69,18 @@ nav img {
         transform: rotate(360deg);
         filter: hue-rotate(360deg);
     }
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    max-width: 960px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e2e2e2;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
 }
 
 .content {
