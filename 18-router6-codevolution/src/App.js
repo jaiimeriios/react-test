@@ -7,6 +7,8 @@ import About from './pages/About';
 // Components
 import Header from './components/Header';
 import Nav from './components/Nav';
+import OrderSummary from './pages/OrderSummary';
+import NotFound from './pages/NotFound';
 
 function App() {
     return (
@@ -17,9 +19,9 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/order-summary" element={<OrderSummary />} />
+                    <Route path="/*" element={<NotFound />} />
                 </Routes>
-                {/* <Home />
-                <About /> */}
             </main>
         </>
     );
