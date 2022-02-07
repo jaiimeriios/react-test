@@ -11,7 +11,7 @@ const Products = () => {
             <br />
             <input type="search" placeholder="Search Products" />
             <br />
-            <nav className="prodcuts-nav">
+            <nav className="products-nav">
                 <Link to="featured">Featured</Link>
                 <Link to="new">New</Link>
             </nav>
