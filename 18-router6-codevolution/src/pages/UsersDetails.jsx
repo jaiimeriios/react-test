@@ -1,12 +1,11 @@
 import { useParams } from 'react-router-dom';
 
 const UsersDetails = () => {
-    
-    const params = useParams();
+    const { userId } = useParams();
 
     return (
         <>
-            <h2>User {params.userId} Details</h2>
+            <h2>User {userId} Details</h2>
             <br />
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.

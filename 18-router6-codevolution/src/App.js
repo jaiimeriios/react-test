@@ -33,7 +33,7 @@ function App() {
                         <Route path="new" element={<ProductsNew />} />
                     </Route>
                     <Route path="/users" element={<Users />}>
-                        {/* Add the Outlet component to parent component: <Users /> */}
+                        {/* Add the Outlet component to parent component <Users /> */}
                         <Route path="admin" element={<UsersAdmin />} />
                         <Route path=":userId" element={<UsersDetails />} />
                     </Route>
