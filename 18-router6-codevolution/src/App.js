@@ -12,6 +12,9 @@ import Products from './pages/Products';
 import NotFound from './pages/NotFound';
 import ProductsFeatured from './pages/ProductsFeatured';
 import ProductsNew from './pages/ProductsNew';
+import Users from './pages/Users';
+import UsersAdmin from './pages/UsersAdmin';
+import UsersDetails from './pages/UsersDetails';
 
 function App() {
     return (
@@ -29,6 +32,19 @@ function App() {
                         <Route path="featured" element={<ProductsFeatured />} />
                         <Route path="new" element={<ProductsNew />} />
                     </Route>
+                    <Route path="/users" element={<Users />}>
+                        {/* Add the Outlet component to parent component: <Users /> */}
+                        <Route path="admin" element={<UsersAdmin />} />
+                        <Route path=":userId" element={<UsersDetails />} />
+                    </Route>
+
+                    {/* 
+                        // lo mismo que arrib
+                        <Route path="/users" element={<Users />} />
+                        <Route path="/users/admin" element={<UsersAdmin />} />
+                        <Route path="/users/:userId" element={<UsersDetails />} />
+                    */}
+
                     <Route path="/*" element={<NotFound />} />
                 </Routes>
             </main>

@@ -1,12 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
 
 const NotFound = () => {
-    const navigate = useNavigate();
-
-    return (
+     return (
         <>
             <h2>404</h2>
             <h3>Page not found</h3>
+            <br/>
+            <Link to='/'>Go Back Home</Link>
         </>
     );
 };

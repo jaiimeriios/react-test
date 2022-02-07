@@ -115,3 +115,7 @@ main {
     justify-content: center;
     background-color: transparent;
 }
+
+main a {
+    color: #1acbba;
+}
