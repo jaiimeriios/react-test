@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Components
@@ -6,7 +7,6 @@ import Nav from './components/Nav';
 
 // pages
 import Home from './pages/Home';
-import About from './pages/About';
 import OrderSummary from './pages/OrderSummary';
 import Products from './pages/Products';
 import NotFound from './pages/NotFound';
@@ -15,6 +15,8 @@ import ProductsNew from './pages/ProductsNew';
 import Users from './pages/Users';
 import UsersAdmin from './pages/UsersAdmin';
 import UsersDetails from './pages/UsersDetails';
+// import About from './pages/About';
+const LazyAbout = React.lazy(() => import('./pages/About'));
 
 function App() {
     return (
@@ -24,7 +26,14 @@ function App() {
             <main>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
+                    <Route
+                        path="/about"
+                        element={
+                            <React.Suspense fallback='Loading...'>
+                                <LazyAbout />
+                            </React.Suspense>
+                        }
+                    />
                     <Route path="/order-summary" element={<OrderSummary />} />
                     <Route path="/products" element={<Products />}>
                         {/* Nested Routes */}
