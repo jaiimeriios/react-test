@@ -4,6 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 // Components
 import Header from './components/Header';
 import Nav from './components/Nav';
+import { AuthProvider } from './pages/auth';
+import Login from './pages/login';
+import RequiredAuth from './pages/RequiredAuth';
 
 // pages
 import Home from './pages/Home';
@@ -15,12 +18,14 @@ import ProductsNew from './pages/ProductsNew';
 import Users from './pages/Users';
 import UsersAdmin from './pages/UsersAdmin';
 import UsersDetails from './pages/UsersDetails';
+import Profile from './pages/Profile';
+
 // import About from './pages/About';
 const LazyAbout = React.lazy(() => import('./pages/About'));
 
 function App() {
     return (
-        <>
+        <AuthProvider>
             <Header title="React Router 6" />
             <Nav />
             <main>
@@ -29,7 +34,7 @@ function App() {
                     <Route
                         path="/about"
                         element={
-                            <React.Suspense fallback='Loading...'>
+                            <React.Suspense fallback="Loading...">
                                 <LazyAbout />
                             </React.Suspense>
                         }
@@ -47,6 +52,16 @@ function App() {
                         <Route path=":userId" element={<UsersDetails />} />
                     </Route>
 
+                    <Route
+                        path="/profile"
+                        element={
+                            <RequiredAuth>
+                                <Profile />
+                            </RequiredAuth>
+                        }
+                    />
+                    <Route path="/login" element={<Login />} />
+
                     {/* 
                         // lo mismo que arrib
                         <Route path="/users" element={<Users />} />
@@ -57,7 +72,7 @@ function App() {
                     <Route path="/*" element={<NotFound />} />
                 </Routes>
             </main>
-        </>
+        </AuthProvider>
     );
 }
 

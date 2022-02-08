@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../pages/auth';
 
 const Nav = () => {
     const navLinkStyle = ({ isActive }) => {
@@ -6,6 +7,8 @@ const Nav = () => {
             fontWeight: isActive ? 'bold' : 'normal',
         };
     };
+
+    const auth = useAuth();
 
     return (
         <nav>
@@ -21,6 +24,16 @@ const Nav = () => {
             <NavLink style={navLinkStyle} to="/users">
                 Users
             </NavLink>
+            <NavLink style={navLinkStyle} to="/profile">
+                Profile
+            </NavLink>
+
+            {!auth.user && (
+                <NavLink style={navLinkStyle} to="/login">
+                    Login
+                </NavLink>
+            )}
+
             {/* <NavLink style={navLinkStyle} to="/order-summary">
                 Order Summary
             </NavLink> */}
