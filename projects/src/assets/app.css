@@ -5,6 +5,9 @@
     --header-height: 65px;
     --bg-header: rgba(24, 34, 48, 0.35);
     --bg-nav: rgba(24, 34, 48, 0.15);
+
+    --heading-color: rgb(171 203 251);
+    --text-color: rgb(219 226 235);
 }
 
 *,
@@ -97,7 +100,6 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 15px 0;
 }
 
 .products-nav {
@@ -117,6 +119,18 @@ main {
 
 .container {
     max-width: 1000px;
-    padding: 20px;
+    width: 100%;
+    padding: 2.5rem 2rem;
     margin: 0 auto;
+}
+
+.container h2 {
+    font-size: 1.35rem;
+    color: var(--heading-color);
+    margin: 0 0 20px 0;
+    
+}
+.container p {
+    font-size: 1rem;
+    color: var(--text-color);
 }

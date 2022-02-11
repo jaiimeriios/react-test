@@ -1,0 +1,85 @@
+.blog-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.blog-section .blog {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0.25rem;
+    background: linear-gradient(
+        65deg,
+        rgba(0, 0, 0, 0.35),
+        rgba(255, 255, 255, 0.055)
+    );
+    cursor: pointer;
+}
+
+.blog-section .blog a {
+    text-decoration: none;
+}
+
+.blog-section .blog:hover h3 {
+    color: #ff9800;
+}
+
+.blog-section .blog h3 {
+    color: #ffc107;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+}
+
+.blog-section .blog p {
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 700px) {
+    .blog-section .blog {
+        width: 49%;
+    }
+}
+
+.blog-details {
+    max-width: 1000px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    margin: 0 auto;
+}
+.blog-details img {
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.blog-details h2 {
+    font-size: 3rem;
+    margin: 2rem 0;
+    color: var(--heading-color);
+}
+
+.blog-details p {
+    font-size: 1.35rem;
+    line-height: 1.5;
+    margin: 0 0 1.35rem 0;
+}
+
+.blog-details button {
+    margin: 0 0 1.5rem auto;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 5px 15px;
+    display: block;
+    color: rgba(0, 0, 0, 0.7);
+    background-color: #ffc107;
+    border: none;
+    border-radius: .2rem;
+    cursor: pointer;
+}
+
+.blog-details button:hover {
+    background-color: #ff9800;
+}

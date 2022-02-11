@@ -6,6 +6,7 @@ import Header from './components/Header';
 // Pages
 import Home from './routes/Home';
 import Blog from './routes/blog/Blog';
+import BlogPage from './routes/blog/BlogPage';
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="blog" element={<Blog />} />
+                    <Route path="blog/:id" element={<BlogPage />} />
                 </Routes>
             </main>
         </>
