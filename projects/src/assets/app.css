@@ -8,6 +8,9 @@
 
     --heading-color: rgb(171 203 251);
     --text-color: rgb(219 226 235);
+
+    --link-color: #ffc107;
+    --link-hover-color: #ff9800;
 }
 
 *,
@@ -81,7 +84,7 @@ nav {
 }
 
 nav a {
-    color: #ffc107;
+    color: var(--link-color);
     text-decoration: none;
     transition: all 300ms ease-out;
 }
@@ -92,7 +95,7 @@ nav a.active:hover {
 }
 
 nav a:hover {
-    color: #ff9800;
+    color: var(--link-hover-color);
 }
 
 main {
@@ -128,9 +131,21 @@ main {
     font-size: 1.35rem;
     color: var(--heading-color);
     margin: 0 0 20px 0;
-    
+}
+
+.container h3 {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin: 0 0 20px 0;
 }
 .container p {
     font-size: 1rem;
     color: var(--text-color);
+}
+
+.not-found {
+    color: var(--link-color);
+}
+.not-found:hover {
+    color: var(--link-hover-color);
 }
