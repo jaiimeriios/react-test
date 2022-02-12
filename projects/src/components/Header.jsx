@@ -2,7 +2,7 @@ import { PropTypes } from 'prop-types';
 import Nav from './Nav';
 import logo from '../assets/logo.svg';
 
-function Header({ title }) {
+const Header = ({ title }) => {
     return (
         <>
             <header>

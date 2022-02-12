@@ -3,7 +3,7 @@ import useFetch from '../../hooks/useFetch';
 
 import './blog.css';
 
-function Blog() {
+const Blog = () => {
     const [data, isLoading, error] = useFetch(
         'https://jsonplaceholder.typicode.com/posts'
     );

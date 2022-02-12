@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
 
-function Nav() {
+const Nav = () => {
     return (
         <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/slideshow">Slideshow</NavLink>
         </nav>
     );
 }

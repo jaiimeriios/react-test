@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function NotFound() {
+const NotFound = () => {
     return (
         <div className="container">
             <h2>404</h2>
