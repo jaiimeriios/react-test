@@ -8,16 +8,20 @@ import Home from './routes/Home';
 import Blog from './routes/blog/Blog';
 import BlogPage from './routes/blog/BlogPage';
 import NotFound from './routes/NotFound';
+import Slideshow from './routes/slideshow/Slideshow';
 
-function App() {
+const App = () => {
     return (
         <>
             <Header title="React Projects" />
             <main>
                 <Routes>
                     <Route path="/" element={<Home />} />
+
                     <Route path="blog" element={<Blog />} />
                     <Route path="blog/:id" element={<BlogPage />} />
+
+                    <Route path="slideshow" element={<Slideshow />} />
 
                     <Route path="/*" element={<NotFound />} />
                 </Routes>
