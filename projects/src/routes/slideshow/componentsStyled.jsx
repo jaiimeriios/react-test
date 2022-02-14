@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
+
 const Section = styled.section`
     margin: 2rem 0;
 `;
 
 const Titulo = styled.h4`
     font-size: 1.2rem;
-    color: #cdd8e1;
     font-weight: 400;
     text-transform: uppercase;
     margin-bottom: 15px;
+    color: ${props => props.tituloEstado ? '#ddc271' : '#cdd8e1'};
 `;
 
 const ContenedorPricipal = styled.div`

@@ -1,27 +1,37 @@
 import Slider from './Slider';
 
 // Styled Components
-import {
-    Section,
-    Titulo,
-    Slide,
-    TextoSlide
-} from './componentsStyled';
+import { Section, Titulo, Slide, TextoSlide } from './componentsStyled';
 
 // imgs
 import imgUno from './../../assets/slideshow/1.jpg';
 import imgDos from './../../assets/slideshow/2.jpg';
 import imgTres from './../../assets/slideshow/3.jpg';
 import imgCuatro from './../../assets/slideshow/4.jpg';
+import { useState } from 'react';
 
 const Slideshow = () => {
+    const [titulo, setTitulo] = useState(true);
+
+    const clickTitulo = () => {
+        setTitulo(!titulo);
+        console.log(titulo);
+    };
+
     return (
         <div className="container">
             <h2>Slideshow</h2>
 
             <Section>
-                <Titulo>Destacados</Titulo>
-                <Slider controles={true} autoplay={false} velocidad="500" intervalo="1000">
+                <Titulo onClick={clickTitulo} tituloEstado={titulo}>
+                    Destacados
+                </Titulo>
+                <Slider
+                    controles={true}
+                    autoplay={false}
+                    velocidad="500"
+                    intervalo="1000"
+                >
                     <Slide>
                         <a href="/slideshow">
                             <img src={imgUno} alt="" />
@@ -57,11 +67,16 @@ const Slideshow = () => {
                 </Slider>
             </Section>
 
-
-
-            <Section >
-                <Titulo>AutoPlay</Titulo>
-                <Slider controles={false} autoplay={true} velocidad="800" intervalo="2000">
+            <Section>
+                <Titulo onClick={clickTitulo} tituloEstado={titulo}>
+                    AutoPlay
+                </Titulo>
+                <Slider
+                    controles={false}
+                    autoplay={true}
+                    velocidad="800"
+                    intervalo="2000"
+                >
                     <Slide>
                         <a href="/slideshow">
                             <img src={imgUno} alt="" />
