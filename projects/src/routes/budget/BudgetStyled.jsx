@@ -7,10 +7,10 @@ const BudgetsRow = styled.section`
     gap: 1rem;
 
     > div {
-        background-color: #00000030;
+        background-color: rgba(0, 0, 0, 0.2);
         width: 100%;
         border-radius: 0.35rem;
-        border: solid 1px #dfe4e717;
+        border: solid 1px rgba(223, 228, 231, 0.1);
 
         .d-flex {
             margin: 0;
@@ -19,6 +19,12 @@ const BudgetsRow = styled.section`
             h3 {
                 margin: 0;
             }
+        }
+        .success {
+            background-color: rgba(16, 96, 47, 0.25);
+        }
+        .danger {
+            background-color: rgba(171, 59, 59, 0.25);
         }
     }
 
@@ -33,4 +39,10 @@ const BudgetsRow = styled.section`
     }
 `;
 
-export { BudgetsRow };
+const Heading4 = styled.h4`
+    font-size: 1.35rem;
+    color: var(--heading-color);
+    margin: 20px 0;
+`;
+
+export { BudgetsRow, Heading4 };

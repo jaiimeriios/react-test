@@ -14,7 +14,7 @@ const AddExpenseForm = () => {
         const expense = {
             id: uuidv4(),
             name: name,
-            const: parseInt(cost),
+            cost: parseInt(cost),
         };
 
         dispatch({
@@ -40,7 +40,7 @@ const AddExpenseForm = () => {
                 <input
                     required
                     id="cost"
-                    type="string"
+                    type="text"
                     value={cost}
                     onChange={(e) => setCost(e.target.value)}
                 ></input>
