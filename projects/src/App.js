@@ -9,6 +9,7 @@ import Blog from './routes/blog/Blog';
 import BlogPage from './routes/blog/BlogPage';
 import NotFound from './routes/NotFound';
 import Slideshow from './routes/slideshow/Slideshow';
+import BudgetApp from './routes/budget/BudgetApp';
 
 const App = () => {
     return (
@@ -23,11 +24,13 @@ const App = () => {
 
                     <Route path="slideshow" element={<Slideshow />} />
 
+                    <Route path="budget" element={<BudgetApp /> } />
+
                     <Route path="/*" element={<NotFound />} />
                 </Routes>
             </main>
         </>
     );
-}
+};
 
 export default App;
