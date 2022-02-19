@@ -1,15 +1,31 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { AppContext } from '../context/AppContext';
+import BudgetEdit from './BudgetEdit';
+import BudgetView from './BudgetView';
 
 const Budget = () => {
-    const { budget } = useContext(AppContext);
+    const { budget, dispatch } = useContext(AppContext);
+    const [isEditing, setIsEditing] = useState(false);
+
+    const handleEditClick = () => {
+        setIsEditing(true);
+    };
+
+    const handleSaveClick = (value) => {
+        dispatch({
+            type: 'SET_BUDGET',
+            payload: value,
+        });
+        setIsEditing(false);
+    };
 
     return (
         <div className="d-flex">
-            <h3>
-                Budget <span>${budget}</span>
-            </h3>
-            <button>Edit</button>
+            {isEditing ? (
+                <BudgetEdit handleSaveClick={handleSaveClick} budget={budget} />
+            ) : (
+                <BudgetView handleEditClick={handleEditClick} budget={budget} />
+            )}
         </div>
     );
 };
