@@ -1,3 +1,5 @@
+import { AppProvider } from './context/AppContext';
+
 import Budget from './components/Budget';
 import { BudgetsRow } from './BudgetStyled';
 import Remaining from './components/Remaining';
@@ -7,27 +9,29 @@ import AddExpenseForm from './components/AddExpenseForm';
 
 const BudgetApp = () => {
     return (
-        <div className="container">
-            <h2>Budget Planner</h2>
+        <AppProvider>
+            <div className="container">
+                <h2>Budget Planner</h2>
 
-            <BudgetsRow>
-                <div className="budgets-section">
-                    <Budget />
-                </div>
-                <div className="budgets-section">
-                    <Remaining />
-                </div>
-                <div className="budgets-section">
-                    <ExpenseTotal />
-                </div>
-            </BudgetsRow>
+                <BudgetsRow>
+                    <div className="budgets-section">
+                        <Budget />
+                    </div>
+                    <div className="budgets-section">
+                        <Remaining />
+                    </div>
+                    <div className="budgets-section">
+                        <ExpenseTotal />
+                    </div>
+                </BudgetsRow>
 
-            <h2>Expenses</h2>
-            <ExpenseList />
+                <h2>Expenses</h2>
+                <ExpenseList />
 
-            <h2>Add Expense</h2>
-            <AddExpenseForm />
-        </div>
+                <h2>Add Expense</h2>
+                <AddExpenseForm />
+            </div>
+        </AppProvider>
     );
 };
 

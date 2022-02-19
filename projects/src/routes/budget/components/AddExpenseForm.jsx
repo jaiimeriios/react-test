@@ -2,7 +2,7 @@ const AddExpenseForm = () => {
     return (
         <form>
             <div>
-                <label for="name">Name</label>
+                <label htmlFor="name">Name</label>
                 <input
                     required
                     id="name"
@@ -10,7 +10,7 @@ const AddExpenseForm = () => {
                 </input>
             </div>
             <div>
-                <label for="cost">Cost</label>
+                <label htmlFor="cost">Cost</label>
                 <input
                     required
                     id="cost"
