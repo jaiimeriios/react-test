@@ -34,16 +34,19 @@ const initialState = {
         {
             id: uuidv4(),
             name: 'Shopping',
+            description: 'Lorem Ipsum',
             cost: 50,
         },
         {
             id: uuidv4(),
             name: 'Holiday',
+            description: 'Dolor Sit Amet',
             cost: 300,
         },
         {
             id: uuidv4(),
             name: 'Car',
+            description: 'Lorem Ipsum Dolor Sit Amet',
             cost: 500,
         },
     ],

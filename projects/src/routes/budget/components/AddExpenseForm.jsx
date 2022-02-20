@@ -7,6 +7,7 @@ const AddExpenseForm = () => {
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
+    const [description, setDescription] = useState('');
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -14,6 +15,7 @@ const AddExpenseForm = () => {
         const expense = {
             id: uuidv4(),
             name: name,
+            description: description,
             cost: parseInt(cost),
         };
 
@@ -36,11 +38,20 @@ const AddExpenseForm = () => {
                 ></input>
             </div>
             <div>
+                <label htmlFor="description">Description</label>
+                <input
+                    id="description"
+                    type="text"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                ></input>
+            </div>
+            <div>
                 <label htmlFor="cost">Cost</label>
                 <input
                     required
                     id="cost"
-                    type="text"
+                    type="number"
                     value={cost}
                     onChange={(e) => setCost(e.target.value)}
                 ></input>
