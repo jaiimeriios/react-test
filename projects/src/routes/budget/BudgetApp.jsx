@@ -25,11 +25,11 @@ const BudgetApp = () => {
                     </div>
                 </BudgetsRow>
 
-                <Heading4>Expenses</Heading4>
-                <ExpenseList />
-
                 <Heading4>Add Expense</Heading4>
                 <AddExpenseForm />
+
+                <Heading4>Expenses</Heading4>
+                <ExpenseList />
             </div>
         </AppProvider>
     );

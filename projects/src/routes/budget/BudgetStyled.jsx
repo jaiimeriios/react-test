@@ -45,4 +45,39 @@ const Heading4 = styled.h4`
     margin: 20px 0;
 `;
 
-export { BudgetsRow, Heading4 };
+const Table = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    // background-color: red;
+
+    tr td,
+    tr th {
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .name {
+        text-align: left;
+    }
+    .cost {
+        text-align: right;
+    }
+    .delete {
+        text-align: center;
+
+        path {
+            color: #7e3d3d;
+            cursor: pointer;
+
+            :hover  {
+                color: red;
+            }
+        }
+    }
+
+    tfoot tr th {
+        border: none;
+    }
+`;
+
+export { BudgetsRow, Heading4, Table };

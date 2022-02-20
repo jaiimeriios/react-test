@@ -14,11 +14,18 @@ const ExpenseItem = ({ id, name, cost }) => {
     };
 
     return (
-        <li>
-            {name}
-            <span>${cost}</span>
-            <TiDelete size="1.5rem" onClick={handleDeleteExpense}></TiDelete>
-        </li>
+        <tr>
+            <td className='name'>{name}</td>
+            <td className='cost'>
+                <span>${cost}</span>
+            </td>
+            <td className='delete'>
+                <TiDelete
+                    size="1.5rem"
+                    onClick={handleDeleteExpense}
+                ></TiDelete>
+            </td>
+        </tr>
     );
 };
 
