@@ -1,13 +1,14 @@
 import { useState, useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import { v4 as uuidv4 } from 'uuid';
+import { Forma } from '../BudgetStyled';
 
 const AddExpenseForm = () => {
     const { dispatch } = useContext(AppContext);
 
     const [name, setName] = useState('');
-    const [cost, setCost] = useState('');
     const [description, setDescription] = useState('');
+    const [cost, setCost] = useState('');
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -23,10 +24,14 @@ const AddExpenseForm = () => {
             type: 'ADD_EXPENSE',
             payload: expense,
         });
+
+        setName('');
+        setDescription('');
+        setCost('');
     };
 
     return (
-        <form onSubmit={onSubmit}>
+        <Forma onSubmit={onSubmit}>
             <div>
                 <label htmlFor="name">Name</label>
                 <input
@@ -59,7 +64,7 @@ const AddExpenseForm = () => {
             <div>
                 <button type="submit">Add</button>
             </div>
-        </form>
+        </Forma>
     );
 };
 

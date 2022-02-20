@@ -1,8 +1,11 @@
+import { FiEdit } from 'react-icons/fi';
+
 const BudgetView = ({ budget, handleEditClick }) => {
     return (
         <>
-            <span>Budget: ${budget}</span>
+            <h3>Budget: ${budget}</h3>
             <button type="button" onClick={handleEditClick}>
+                <FiEdit size="1rem"></FiEdit>
                 Edit
             </button>
         </>

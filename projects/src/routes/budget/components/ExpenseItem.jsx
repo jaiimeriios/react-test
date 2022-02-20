@@ -16,16 +16,15 @@ const ExpenseItem = ({ id, name, description, cost }) => {
     return (
         <tr>
             <td className="name">
-                {name}
-                <br />
-                {description}
+                <h5>{name}</h5>
+                <p>{description}</p>
             </td>
             <td className="cost">
                 <span>${cost}</span>
             </td>
             <td className="delete">
                 <AiFillDelete
-                    size="1.5rem"
+                    size="1rem"
                     onClick={handleDeleteExpense}
                 ></AiFillDelete>
             </td>

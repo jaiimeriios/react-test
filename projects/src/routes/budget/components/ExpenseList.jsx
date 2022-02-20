@@ -1,13 +1,12 @@
 import { useContext } from 'react';
-import { Table } from '../BudgetStyled';
 import { AppContext } from '../context/AppContext';
+import { Table } from '../BudgetStyled';
 import ExpenseItem from './ExpenseItem';
 
 const ExpenseList = () => {
+
     const { expenses } = useContext(AppContext);
-
-    console.log(expenses);
-
+    
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
     }, 0);
