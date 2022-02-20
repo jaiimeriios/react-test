@@ -6,7 +6,7 @@ import { AppContext } from '../context/AppContext';
 
 const ExpenseItem = ({ id }) => {
     const { expenses, dispatch } = useContext(AppContext); // Get app contex
-    const current = expenses.filter((expense) => expense.id == id); // array of filtered items
+    const current = expenses.filter((expense) => expense.id === id); // array of filtered items
 
     const [nameValue, setNameValue] = useState(current[0].name); // get values loaded from state
     const [descriptionValue, setDescriptionValue] = useState(
