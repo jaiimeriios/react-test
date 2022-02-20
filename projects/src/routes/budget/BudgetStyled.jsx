@@ -52,7 +52,7 @@ const Table = styled.table`
 
     tr td,
     tr th {
-        padding: 10px;
+        padding: 1rem .5rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
 
@@ -62,6 +62,11 @@ const Table = styled.table`
 
     .name {
         text-align: left;
+
+        h5 {
+            font-size: 1.15rem;
+            margin-bottom: .25rem;
+        }
     }
     .cost {
         text-align: right;

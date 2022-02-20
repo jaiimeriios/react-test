@@ -42,6 +42,30 @@ const AppReducer = (state, action) => {
                 budget: (state.budget = action.payload),           // update budget value with 
             };                                                     // new value on input save
 
+        case 'UPDATE_NAME':
+            return {
+                ...state,
+                expenses: state.expenses.filter(
+                    (expense) => expense.name !== action.payload
+                ),
+            };
+
+        case 'UPDATE_DESCRIPTION':
+            return {
+                ...state,
+                expenses: state.expenses.filter(
+                    (expense) => expense.description !== action.payload
+                ),
+            };
+
+        case 'UPDATE_COST':
+            return {
+                ...state,
+                expenses: state.expenses.filter(
+                    (expense) => expense.cost !== action.payload
+                ),
+            };
+
         default:
             return state;
     }
