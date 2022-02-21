@@ -143,6 +143,23 @@ main {
     color: var(--text-color);
 }
 
+.container a.navigate {
+    font-size: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--link-color);
+}
+
+.container a.navigate svg {
+    margin-right: .25rem;
+}
+
+.container a.navigate:hover {
+    font-size: 1rem;
+    color: var(--link-hover-color);
+}
+
 .not-found {
     color: var(--link-color);
 }
