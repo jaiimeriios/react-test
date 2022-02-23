@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+
 import { Forma, Table } from './CRUDstyled';
 import data from './data.json';
 import { RiLinkM, RiContactsLine } from 'react-icons/ri';
@@ -28,17 +30,31 @@ const CRUDtable = () => {
         const newFormData = { ...addFormData };
 
         // Update the object with the new values
-        newFormData[fieldName] = fielValue
+        newFormData[fieldName] = fielValue;
 
         // set into state
-        setAddFormData(newFormData)
+        setAddFormData(newFormData);
     };
-
 
     const handleAddFormSubmit = (e) => {
         e.preventDefault();
-        console.log(e)
-    }
+
+        // creating new object
+        const newContact = {
+            id: uuidv4(),
+            fullName: addFormData.fullName,
+            address: addFormData.address,
+            phoneNumber: addFormData.phoneNumber,
+            email: addFormData.email,
+        };
+
+        // new contact array to avoid mutating state
+        // copy current contacts (from json) and add new added contec
+        const newContacts = [...contacts, newContact]
+
+        // update contact state
+        setContacts(newContacts)
+    };
 
     return (
         <div className="container">
@@ -75,7 +91,13 @@ const CRUDtable = () => {
                     placeholder="Phone Number"
                     onChange={handleAddFormChange}
                 />
-                <input required type="email" name="email" placeholder="Email" />
+                <input
+                    required
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    onChange={handleAddFormChange}
+                />
 
                 <button type="submit">Add</button>
             </Forma>
