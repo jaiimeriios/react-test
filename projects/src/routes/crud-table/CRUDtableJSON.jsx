@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-
 import { Forma, Table } from './CRUDstyled';
 import { RiLinkM, RiContactsLine } from 'react-icons/ri';
 

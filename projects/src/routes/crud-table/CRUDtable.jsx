@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-
-import { Forma, Table } from './CRUDstyled';
 import data from './data.json';
+import { Forma, Table } from './CRUDstyled';
 import { RiLinkM, RiContactsLine } from 'react-icons/ri';
 
 const CRUDtable = () => {
@@ -50,10 +49,10 @@ const CRUDtable = () => {
 
         // new contact array to avoid mutating state
         // copy current contacts (from json) and add new added contec
-        const newContacts = [...contacts, newContact]
+        const newContacts = [...contacts, newContact];
 
         // update contact state
-        setContacts(newContacts)
+        setContacts(newContacts);
     };
 
     return (
@@ -69,6 +68,9 @@ const CRUDtable = () => {
                 Add Contact <RiContactsLine></RiContactsLine>
             </h3>
 
+            {/*
+                TODO:: move forma to a component
+            */}
             <Forma onSubmit={handleAddFormSubmit}>
                 <input
                     required
