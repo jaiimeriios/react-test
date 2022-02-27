@@ -60,7 +60,6 @@ const CRUDtable = () => {
 
         // update contact state
         setContacts(newContacts);
-        setAddFormData(formData)
     };
 
     // EDIT ROW

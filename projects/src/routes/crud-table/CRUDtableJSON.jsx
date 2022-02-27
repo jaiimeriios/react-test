@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { Forma, Table } from './CRUDstyled';
+import { Table } from './CRUDstyled';
 import { RiLinkM, RiContactsLine } from 'react-icons/ri';
+import JSONaddContactForm from './components/JSONaddContactForm';
+import JSONrowReadOnly from './components/JSONrowReadOnly';
+import JSONrowEditable from './components/JSONrowEditable';
 
 const CRUDtableJSON = () => {
     const [users, setUsers] = useState();
@@ -85,6 +88,93 @@ const CRUDtableJSON = () => {
         setUsers(newUsers);
     };
 
+    // EDIT ROW
+    const [editUserData, setEditUserData] = useState(formData);
+    const [editUserId, setEditUserId] = useState(null);
+
+    // toggles table row view to edit
+    const handleEditClick = (e, user) => {
+        e.preventDefault();
+        setEditUserId(user.id);
+
+        const formValues = {
+            name: user.name,
+            username: user.username,
+            website: user.website,
+            companyName: user.companyName,
+            companyCatchPhrase: user.companyCatchPhrase,
+            companyBS: user.companyBS,
+        
+        };
+
+        setEditUserData(formValues);
+    };
+
+    // update new input values to state
+    const handleEditFormChange = (e) => {
+        e.preventDefault();
+
+        // get the input value with the 'name' attribure on each input
+        const fieldName = e.target.getAttribute('name');
+        const fielValue = e.target.value;
+
+        // copy the existing form data
+        const newFormData = { ...editUserData };
+
+        // Update the object with the new values
+        newFormData[fieldName] = fielValue;
+
+        // set into state
+        setEditUserData(newFormData);
+    };
+
+    // submit edited row
+    const handleEditFormSubmit = (e) => {
+        e.preventDefault();
+
+        const editedUsers = {
+            name: editUserData.name,
+            username: editUserData.username,
+            website: editUserData.website,
+            companyName: editUserData.companyName,
+            companyCatchPhrase: editUserData.companyCatchPhrase,
+            companyBS: editUserData.companyBS,
+            // company: {
+            //     name: editUserData.companyName,
+            //     catchPhrase: editUserData.companyCatchPhrase,
+            //     bs: editUserData.companyBS,
+            // },
+        };
+
+        const newUsers = [...users];
+        const index = users.findIndex((user) => (user.id = editUserId));
+
+        newUsers[index] = editedUsers;
+
+        setUsers(newUsers);
+        setEditUserId(null);
+    };
+
+    // cancel editing
+    const handleCancelClick = () => {
+        setEditUserId(null);
+    };
+
+    // delete row
+    const handleDeleteClick = (userId) => {
+        // new copy of the current contacts data
+        const newUsers = [...users];
+
+        // get the index
+        const index = users.findIndex((user) => {
+            return user.id === userId;
+        });
+
+        newUsers.splice(index, 1);
+
+        setUsers(newUsers);
+    };
+
     return (
         <div className="container">
             <h2>CRUD Table - JSON</h2>
@@ -98,83 +188,49 @@ const CRUDtableJSON = () => {
                 Add Contact <RiContactsLine></RiContactsLine>
             </h3>
 
-            <Forma onSubmit={handleAddFormSubmit}>
-                <input
-                    required
-                    type="text"
-                    name="name"
-                    placeholder="name"
-                    onChange={handleAddFormChange}
-                />
-                <input
-                    required
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    onChange={handleAddFormChange}
-                />
-                <input
-                    required
-                    type="text"
-                    name="website"
-                    placeholder="Website"
-                    onChange={handleAddFormChange}
-                />
-                <input
-                    required
-                    type="text"
-                    name="companyName"
-                    placeholder="Company Name"
-                    onChange={handleAddFormChange}
-                />
-                <input
-                    required
-                    type="text"
-                    name="companyCatchPhrase"
-                    placeholder="Company Catch Phrase"
-                    onChange={handleAddFormChange}
-                />
-                <input
-                    required
-                    type="text"
-                    name="companyBS"
-                    placeholder="BS"
-                    onChange={handleAddFormChange}
-                />
+            <JSONaddContactForm
+                handleAddFormSubmit={handleAddFormSubmit}
+                handleAddFormChange={handleAddFormChange}
+            />
 
-                <button type="submit">Add</button>
-            </Forma>
-
-            <Table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Username</th>
-                        <th>Website</th>
-                        <th>Company</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users &&
-                        users.map((user) => (
-                            <tr key={user.id}>
-                                <td>{user.id}</td>
-                                <td>
-                                    <p>{user.name}</p>
-                                    <p>{user.username}</p>
-                                    <p>{user.email}</p>
-                                </td>
-
-                                <td>{user.website}</td>
-                                <td>
-                                    <p>{user.company.name}</p>
-                                    <p>{user.company.catchPhrase}</p>
-                                    <p>{user.company.bs}</p>
-                                </td>
-                            </tr>
-                        ))}
-                </tbody>
-            </Table>
+            <form onSubmit={handleEditFormSubmit}>
+                <Table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Username</th>
+                            <th>Website</th>
+                            <th>Company</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users &&
+                            users.map((user) => (
+                                <>
+                                    {editUserId === user.id ? (
+                                        <JSONrowEditable
+                                            key={user.id + 1}
+                                            editUserData={editUserData}
+                                            handleEditFormChange={
+                                                handleEditFormChange
+                                            }
+                                            handleCancelClick={
+                                                handleCancelClick
+                                            }
+                                        />
+                                    ) : (
+                                        <JSONrowReadOnly
+                                            key={user.id - 1}
+                                            user={user}
+                                            handleEditClick={handleEditClick}
+                                            handleDeleteClick={handleDeleteClick}
+                                        />
+                                    )}
+                                </>
+                            ))}
+                    </tbody>
+                </Table>
+            </form>
         </div>
     );
 };
