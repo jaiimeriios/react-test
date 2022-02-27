@@ -2,10 +2,15 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import data from './data.json';
-import { Forma, Table } from './CRUDstyled';
+import { Table } from './CRUDstyled';
 import { RiLinkM, RiContactsLine } from 'react-icons/ri';
 
+import AddContactForm from './components/AddContactForm';
+import RowReadOnly from './components/RowReadOnly';
+import RowEditable from './components/RowEditable';
+
 const CRUDtable = () => {
+    // base data form contacts from json file
     const [contacts, setContacts] = useState(data);
 
     // object keys are the same as form inputs 'name'
@@ -18,6 +23,7 @@ const CRUDtable = () => {
 
     const [addFormData, setAddFormData] = useState(formData);
 
+    // get input values to state
     const handleAddFormChange = (e) => {
         e.preventDefault();
 
@@ -35,6 +41,7 @@ const CRUDtable = () => {
         setAddFormData(newFormData);
     };
 
+    // update json data and add new item
     const handleAddFormSubmit = (e) => {
         e.preventDefault();
 
@@ -53,6 +60,88 @@ const CRUDtable = () => {
 
         // update contact state
         setContacts(newContacts);
+        setAddFormData(formData)
+    };
+
+    // EDIT ROW
+    const [editFormData, setEditFormData] = useState(formData);
+
+    const [editContactId, setEditContactId] = useState(null);
+
+    // toggles table row view to edit
+    const handleEditClick = (e, contact) => {
+        e.preventDefault();
+        setEditContactId(contact.id);
+
+        const formValues = {
+            fullName: contact.fullName,
+            address: contact.address,
+            phoneNumber: contact.phoneNumber,
+            email: contact.email,
+        };
+
+        setEditFormData(formValues);
+    };
+
+    // update new input values to state
+    const handleEditFormChange = (e) => {
+        e.preventDefault();
+
+        // get the input value with the 'name' attribure on each input
+        const fieldName = e.target.getAttribute('name');
+        const fielValue = e.target.value;
+
+        // copy the existing form data
+        const newFormData = { ...editFormData };
+
+        // Update the object with the new values
+        newFormData[fieldName] = fielValue;
+
+        // set into state
+        setEditFormData(newFormData);
+    };
+
+    // submit edited row
+    const handleEditFormSubmit = (e) => {
+        e.preventDefault();
+
+        const editedContact = {
+            id: editContactId,
+            fullName: editFormData.fullName,
+            address: editFormData.address,
+            phoneNumber: editFormData.phoneNumber,
+            email: editFormData.email,
+        };
+
+        const newContacts = [...contacts];
+        const index = contacts.findIndex(
+            (contact) => (contact.id = editContactId)
+        );
+
+        newContacts[index] = editedContact;
+
+        setContacts(newContacts);
+        setEditContactId(null);
+    };
+
+    // cancel editing
+    const handleCancelClick = () => {
+        setEditContactId(null);
+    };
+
+    // delete row
+    const handleDeleteClick = (contactId) => {
+        // new copy of the current contacts data
+        const newContacts = [...contacts];
+
+        // get the index
+        const index = contacts.findIndex((contact) => {
+            return contact.id === contactId;
+        });
+
+        newContacts.splice(index, 1);
+
+        setContacts(newContacts);
     };
 
     return (
@@ -68,64 +157,47 @@ const CRUDtable = () => {
                 Add Contact <RiContactsLine></RiContactsLine>
             </h3>
 
-            {/*
-                TODO:: move forma to a component
-            */}
-            <Forma onSubmit={handleAddFormSubmit}>
-                <input
-                    required
-                    type="text"
-                    name="fullName"
-                    placeholder="Name"
-                    onChange={handleAddFormChange}
-                />
-                <input
-                    required
-                    type="text"
-                    name="address"
-                    placeholder="Address"
-                    onChange={handleAddFormChange}
-                />
-                <input
-                    required
-                    type="text"
-                    name="phoneNumber"
-                    placeholder="Phone Number"
-                    onChange={handleAddFormChange}
-                />
-                <input
-                    required
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleAddFormChange}
-                />
+            <AddContactForm
+                handleAddFormSubmit={handleAddFormSubmit}
+                handleAddFormChange={handleAddFormChange}
+            />
 
-                <button type="submit">Add</button>
-            </Forma>
-
-            <Table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {contacts.map((contact) => (
-                        <tr key={contact.id}>
-                            <td>{contact.fullName}</td>
-                            <td>{contact.address}</td>
-                            <td>{contact.phoneNumber}</td>
-                            <td>{contact.email}</td>
-                            <td>asdf</td>
+            <form onSubmit={handleEditFormSubmit}>
+                <Table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Actions</th>
                         </tr>
-                    ))}
-                </tbody>
-            </Table>
+                    </thead>
+                    <tbody>
+                        {contacts.map((contact) => (
+                            <>
+                                {editContactId === contact.id ? (
+                                    <RowEditable
+                                        key={contact.id + 1}
+                                        editFormData={editFormData}
+                                        handleEditFormChange={
+                                            handleEditFormChange
+                                        }
+                                        handleCancelClick={handleCancelClick}
+                                    />
+                                ) : (
+                                    <RowReadOnly
+                                        key={contact.id - 1}
+                                        contact={contact}
+                                        handleEditClick={handleEditClick}
+                                        handleDeleteClick={handleDeleteClick}
+                                    />
+                                )}
+                            </>
+                        ))}
+                    </tbody>
+                </Table>
+            </form>
         </div>
     );
 };

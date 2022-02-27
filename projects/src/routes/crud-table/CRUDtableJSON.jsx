@@ -63,7 +63,8 @@ const CRUDtableJSON = () => {
         e.preventDefault();
 
         // creating new object
-        // object keys are the same as initial data and values are the same from input 'name'
+        // object keys are the same as initial data and values are the same from input attribute 'name'
+        // this are taken from 'state' on updated values
         const newUser = {
             id: uuidv4(),
             name: addFormData.name,
