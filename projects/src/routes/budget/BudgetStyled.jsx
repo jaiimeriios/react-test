@@ -33,7 +33,6 @@ const BudgetsRow = styled.section`
         justify-content: space-between;
 
         > div {
-            background-color: blue;
             width: 32%;
         }
     }
