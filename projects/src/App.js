@@ -12,8 +12,8 @@ import Slideshow from './routes/slideshow/Slideshow';
 import BudgetApp from './routes/budget/BudgetApp';
 import CRUDtable from './routes/crud-table/CRUDtable';
 import CRUDtableJSON from './routes/crud-table/CRUDtableJSON';
-import Cripto from './routes/cripto/Cripto';
-import CriptoCoin from './routes/cripto/CriptoCoin';
+import Crypto from './routes/crypto/Crypto';
+import CryptoCoin from './routes/crypto/CryptoCoin';
 import Jokes from './routes/jokes/Jokes';
 
 const App = () => {
@@ -34,8 +34,8 @@ const App = () => {
                     <Route path="crud-table" element={<CRUDtable />} />
                     <Route path="crud-table-json" element={<CRUDtableJSON />} />
 
-                    <Route path="cripto" element={<Cripto /> } />
-                    <Route path="cripto/:id" element={<CriptoCoin />  } />
+                    <Route path="crypto" element={<Crypto /> } />
+                    <Route path="crypto/:id" element={<CryptoCoin />  } />
 
                     <Route path="jokes" element={<Jokes />} />
 

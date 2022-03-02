@@ -1,9 +1,9 @@
 // https://www.youtube.com/watch?v=cgG2_tBDWjE
 
 import { useEffect, useState } from 'react';
-import CriptoCoinList from './CriptoCoinList';
+import CryptoCoinList from './CryptoCoinList';
 
-const Cripto = () => {
+const Crypto = () => {
     const [coinsList, setCoinsList] = useState([]);
     const [searchWord, setSearchWord] = useState('');
 
@@ -16,7 +16,7 @@ const Cripto = () => {
             .finally(() => {
                 console.log(coinsList);
             });
-    }, [searchWord]);
+    }, [coinsList, searchWord]);
 
     const filteredCoins = coinsList.filter((coin) => {
         return coin.name.toLowerCase().includes(searchWord.toLowerCase());
@@ -24,7 +24,7 @@ const Cripto = () => {
 
     return (
         <div className="container">
-            <h2>Criptocurrencies</h2>
+            <h2>Cryptocurrencies</h2>
             <h2>fetch and filters with useEffect & useState</h2>
 
             <input
@@ -35,10 +35,10 @@ const Cripto = () => {
                 }}
             />
             {filteredCoins.map((coin) => (
-                <CriptoCoinList key={coin.id} coin={coin} />
+                <CryptoCoinList key={coin.id} coin={coin} />
             ))}
         </div>
     );
 };
 
-export default Cripto;
+export default Crypto;

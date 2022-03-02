@@ -29,7 +29,7 @@ function useFetch(url) {
         };
 
         getApiData();
-    }, []);
+    }, [url]);
 
     return { data, loading, error };
 }

@@ -1,8 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import useFetch from './useFetch';
 
-const CriptoCoin = () => {
+const CryptoCoin = () => {
     const { id } = useParams();
     const history = useNavigate();
 
@@ -26,7 +25,7 @@ const CriptoCoin = () => {
                 <h4>Loading...</h4>
             ) : (
                 <>
-                    <img src={data.coin.icon} alt="cripto coin" />
+                    <img src={data.coin.icon} alt="crypto coin" />
                     <h3>
                         {data.coin.rank} {data.coin.name}
                     </h3>
@@ -39,4 +38,4 @@ const CriptoCoin = () => {
     );
 };
 
-export default CriptoCoin;
+export default CryptoCoin;

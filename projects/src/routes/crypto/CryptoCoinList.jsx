@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-const CriptoCoinList = ({ coin }) => {
+const CryptoCoinList = ({ coin }) => {
     return (
-        <Link to={`/cripto/${coin.id}`}>
-            <img src={coin.icon} alt="cripto coin" />
+        <Link to={`/crypto/${coin.id}`}>
+            <img src={coin.icon} alt="crypto coin" />
             <h3>
                 {coin.rank} {coin.name}
             </h3>
@@ -14,4 +14,4 @@ const CriptoCoinList = ({ coin }) => {
     );
 };
 
-export default CriptoCoinList;
+export default CryptoCoinList;
