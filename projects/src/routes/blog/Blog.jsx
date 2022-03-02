@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import useFetch from '../../hooks/useFetch';
-
+import useFetch from './useFetch';
 import './blog.css';
 
 const Blog = () => {
@@ -27,6 +26,6 @@ const Blog = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Blog;
