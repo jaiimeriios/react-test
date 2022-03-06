@@ -11,9 +11,9 @@ const BlogPage = () => {
 
     return (
         <div className="blog-details">
-            {error && <p>{error}</p>}
-
-            {isLoading ? (
+            {error ? (
+                <p>{error}</p>
+            ) : isLoading ? (
                 <p className="loading">Loading...</p>
             ) : (
                 <>
