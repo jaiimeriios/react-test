@@ -10,6 +10,7 @@ const Nav = () => {
             <NavLink to="/jokes">Jokes</NavLink>
             <NavLink to="/crypto">Crypto</NavLink>
             <NavLink to="/movies">Movies</NavLink>
+            <NavLink to="/paginate">Paginate</NavLink>
         </nav>
     );
 }

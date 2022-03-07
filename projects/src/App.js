@@ -16,6 +16,7 @@ import Jokes from './routes/jokes/Jokes';
 import Crypto from './routes/crypto/Crypto';
 import CryptoCoin from './routes/crypto/CryptoCoin';
 import Movies from './routes/moviesAPI/Movies';
+import Paginate from './routes/paginate/Paginate';
 
 const App = () => {
     return (
@@ -41,6 +42,8 @@ const App = () => {
                     <Route path="crypto/:id" element={<CryptoCoin />  } />
 
                     <Route path="movies" element={<Movies />} />
+
+                    <Route path="paginate" element={<Paginate itemsPerPage={5} />} />
                     
                     <Route path="/*" element={<NotFound />} />
                 </Routes>
